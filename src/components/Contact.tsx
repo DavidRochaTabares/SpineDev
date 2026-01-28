@@ -17,12 +17,12 @@ export default function Contact() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* <TitleContact /> */}
 
-        <div className="flex items-center justify-center max-w-screen-xl mx-auto">
+        <div ref={ref} className="flex items-center justify-center max-w-screen-xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center justify-center"
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center justify-center w-full"
           >
             <div className="relative w-full max-w-full">
               <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur-xl opacity-50"></div>
