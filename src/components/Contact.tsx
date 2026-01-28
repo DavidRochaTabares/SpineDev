@@ -1,15 +1,17 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { MessageCircle } from 'lucide-react';
-import TitleContact from './TitleContact';
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { MessageCircle } from "lucide-react";
+import TitleContact from "./TitleContact";
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const whatsappNumber = '573058260893';
-  const whatsappMessage = encodeURIComponent('¡Hola! Me gustaría obtener más información sobre sus servicios.');
+  const whatsappNumber = "573058260893";
+  const whatsappMessage = encodeURIComponent(
+    "¡Hola! Me gustaría obtener más información sobre sus servicios.",
+  );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
@@ -17,7 +19,10 @@ export default function Contact() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* <TitleContact /> */}
 
-        <div ref={ref} className="flex items-center justify-center max-w-screen-xl mx-auto">
+        <div
+          ref={ref}
+          className="flex items-center justify-center max-w-screen-xl mx-auto"
+        >
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -26,7 +31,7 @@ export default function Contact() {
           >
             <div className="relative w-full max-w-full">
               <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl blur-xl opacity-50"></div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
@@ -42,7 +47,7 @@ export default function Contact() {
                 </motion.div>
 
                 <h3 className="text-3xl font-display font-bold mb-4">
-                  ¡Hablemos por{' '}
+                  ¡Hablemos por{" "}
                   <span className="bg-gradient-to-r from-green-500 to-green-600 bg-clip-text text-transparent">
                     WhatsApp
                   </span>
@@ -50,7 +55,8 @@ export default function Contact() {
                 </h3>
 
                 <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
-                  Estamos disponibles para responder todas tus preguntas y ayudarte con tu proyecto
+                  Estamos disponibles para responder todas tus preguntas y
+                  ayudarte con tu proyecto
                 </p>
 
                 <motion.a
