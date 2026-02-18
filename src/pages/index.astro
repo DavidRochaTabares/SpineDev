@@ -39,13 +39,13 @@ import ScrollToTop from '../components/ScrollToTop';
 		<Navigation />
 		<main>
 			<MainView client:load />
-			<Services client:load />
-			<About client:load />
-			<Portfolio client:load />
-			{/* <Testimonials client:load /> */}
-			<Contact client:load />
+			<Services client:visible />
+			<About client:visible />
+			<Portfolio client:visible />
+			{/* <Testimonials client:visible /> */}
+			<Contact client:visible />
 		</main>
 		<Footer />
-		<ScrollToTop client:load />
+		<ScrollToTop client:visible />
 	</body>
 </html>
