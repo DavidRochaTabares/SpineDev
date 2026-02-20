@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
-import { ScrollTrigger } from "gsap/all";
 import StarsBackground from "./StarsBackground";
 
 export default function MainView() {

@@ -13,7 +13,10 @@ export default defineConfig({
   ],
   vite: {
     ssr: {
-      noExternal: ['framer-motion'],
+      noExternal: ["framer-motion", "gsap"],
+    },
+    optimizeDeps: {
+      include: ["gsap", "gsap/ScrollTrigger"],
     },
   },
 });
