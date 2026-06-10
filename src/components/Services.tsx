@@ -100,7 +100,7 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="servicios" className="py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="servicios" className="py-24 bg-gray-50 dark:bg-gray-900 z-10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -110,13 +110,14 @@ export default function Services() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-display font-bold mb-4">
-            Nuestros{' '}
+            Nuestros{" "}
             <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
               Servicios
             </span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Soluciones completas para llevar tu proyecto digital al siguiente nivel
+            Soluciones completas para llevar tu proyecto digital al siguiente
+            nivel
           </p>
         </motion.div>
 
