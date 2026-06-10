@@ -1,0 +1,72 @@
+---
+import { Github, Linkedin, Mail } from 'lucide-react';
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Layout responsive: centrado en móvil, justify-between en desktop -->
+    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-8 mb-8">
+      <!-- Logo y descripción -->
+      <div class="text-center md:text-left max-w-md">
+        <div class="mb-4 flex justify-center md:justify-start">
+          <img src="/Spinedev logo horizontal blanco.png" alt="SpineDev" class="h-12 w-auto" />
+        </div>
+        <p class="text-gray-300 footer-description" data-i18n="footer.description">
+          Transformamos ideas en experiencias digitales. Desarrollo web profesional con pasión y dedicación.
+        </p>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="text-center md:text-right">
+        <h4 class="text-white font-semibold mb-4 footer-follow-us" data-i18n="footer.followUs">Síguenos</h4>
+        <div class="flex justify-center md:justify-end gap-4">
+          <a href="https://github.com/DavidRochaCode" target="_blank" rel="noopener noreferrer" class="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors" aria-label="GitHub">
+            <Github className="w-5 h-5" />
+          </a>
+          <a href="https://www.linkedin.com/in/david-rocha-tabares" target="_blank" rel="noopener noreferrer" class="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors" aria-label="LinkedIn">
+            <Linkedin className="w-5 h-5" />
+          </a>
+          <a href="mailto:davidrochacode@gmail.com" class="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors" aria-label="Email">
+            <Mail className="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright centrado -->
+    <div class="border-t border-gray-800 pt-6 text-center">
+      <p class="text-sm text-gray-300 footer-rights">
+        © {new Date().getFullYear()} SpineDev. <span data-i18n="footer.rights">Todos los derechos reservados</span>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  import { translations } from '../i18n/translations';
+  
+  if (typeof window !== 'undefined') {
+    function updateFooterText() {
+      const language = (localStorage.getItem('language') as 'es' | 'en') || 'es';
+      const t = translations[language];
+      
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.getAttribute('data-i18n');
+        if (key) {
+          const keys = key.split('.');
+          let value: any = t;
+          for (const k of keys) {
+            value = value[k];
+          }
+          if (typeof value === 'string') {
+            element.textContent = value;
+          }
+        }
+      });
+    }
+
+    updateFooterText();
+    
+    window.addEventListener('languageChange', updateFooterText);
+  }
+</script>

@@ -1,8 +1,6 @@
 ---
 import '../styles/global.css';
-import Navigation from '../components/Navigation.astro';
 import NavigationCV from '../components/NavigationCV';
-import Footer from '../components/Footer.astro';
 import ScrollToTop from '../components/ScrollToTop';
 import LanguageModal from '../components/LanguageModal';
 
@@ -44,11 +42,10 @@ const { title, description, keywords = '', ogImage = '/og-image.jpg', hideFooter
   </head>
   <body>
     <LanguageModal client:load />
-    {useCVNav ? <NavigationCV client:load /> : <Navigation />}
+    <NavigationCV client:load />
     <main>
       <slot />
     </main>
-    {!hideFooter && <Footer />}
     <ScrollToTop client:visible />
   </body>
 </html>

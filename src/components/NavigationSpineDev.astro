@@ -1,0 +1,89 @@
+---
+import ThemeToggle from './ThemeToggle';
+import LanguageSelector from './LanguageSelector';
+import MobileMenu from './MobileMenu';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-[100] bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a href="#inicio" class="flex items-center">
+          <img src="/spinedev logo horizontal azul.png" alt="SpineDev" class="h-8 md:h-10 w-auto dark:hidden" />
+          <img src="/Spinedev logo horizontal blanco.png" alt="SpineDev" class="h-8 md:h-10 w-auto hidden dark:block" />
+        </a>
+      </div>
+      
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#inicio" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" data-i18n="navigation.home">
+          Inicio
+        </a>
+        <a href="#servicios" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" data-i18n="navigation.services">
+          Servicios
+        </a>
+        <a href="#portafolio" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" data-i18n="navigation.portfolio">
+          Portafolio
+        </a>
+        <a href="#proceso" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" data-i18n="navigation.process">
+          Proceso
+        </a>
+        <a href="#tecnologias" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" data-i18n="navigation.technologies">
+          Tecnologías
+        </a>
+        <a href="#sobre-spinedev" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" data-i18n="navigation.about">
+          Nosotros
+        </a>
+        <a href="#faq" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors" data-i18n="navigation.faq">
+          FAQ
+        </a>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <LanguageSelector client:load />
+        <ThemeToggle client:load />
+        <a 
+          href="#contacto" 
+          class="nav-cta hidden md:inline-flex px-6 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium"
+          data-i18n="navigation.cta"
+        >
+          Hablemos
+        </a>
+        <MobileMenu client:load />
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  import { translations } from '../i18n/translations';
+  
+  if (typeof window !== 'undefined') {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+
+    function updateNavigationText() {
+      const language = (localStorage.getItem('language') as 'es' | 'en') || 'es';
+      const t = translations[language];
+      
+      document.querySelectorAll('.nav-link, .nav-cta').forEach((element) => {
+        const key = element.getAttribute('data-i18n');
+        if (key) {
+          const keys = key.split('.');
+          let value: any = t;
+          for (const k of keys) {
+            value = value[k];
+          }
+          if (typeof value === 'string') {
+            element.textContent = value;
+          }
+        }
+      });
+    }
+
+    updateNavigationText();
+    
+    window.addEventListener('languageChange', updateNavigationText);
+  }
+</script>
