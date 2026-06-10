@@ -5,31 +5,32 @@ export default {
   theme: {
     extend: {
       colors: {
+        // SpineDev Brand Colors
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+          50: '#f0f5ff',
+          100: '#e0ebff',
+          200: '#c7d7fe',
+          300: '#a5b8fc',
+          400: '#8693f8',
+          500: '#1E3A5F', // Navy Blue - SpineDev
+          600: '#1a3352',
+          700: '#162b45',
+          800: '#122338',
+          900: '#0e1b2b',
+          950: '#0a131e',
         },
         secondary: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#a855f7',
-          600: '#9333ea',
-          700: '#7e22ce',
-          800: '#6b21a8',
-          900: '#581c87',
-          950: '#3b0764',
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#FFC107', // Yellow - SpineDev
+          600: '#f59e0b',
+          700: '#d97706',
+          800: '#b45309',
+          900: '#92400e',
+          950: '#78350f',
         },
         accent: {
           50: '#fff7ed',
@@ -46,8 +47,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Lexend', 'system-ui', 'sans-serif'],
+        sans: ['Neue Montreal', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Neue Montreal', 'Lexend', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

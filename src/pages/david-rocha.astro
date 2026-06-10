@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MainView from '../components/MainView';
+import Technologies from '../components/Technologies';
+import Experience from '../components/Experience';
+import Education from '../components/Education';
+import FooterCV from '../components/FooterCV';
+
+const title = "David Rocha Tabares - Desarrollador Web Frontend | React | Next.js | AWS";
+const description = "Desarrollador Web Frontend con 3 años de experiencia en React, Next.js, AWS y WordPress. Especializado en aplicaciones web modernas, cloud computing y automatización con IA.";
+const keywords = "David Rocha Tabares, Desarrollador Frontend, React, Next.js, AWS, Node.js, WordPress, Tailwind CSS, Redux, desarrollador web, programador, Bogotá Colombia";
+---
+
+<BaseLayout title={title} description={description} keywords={keywords} hideFooter={true} useCVNav={true}>
+  <MainView client:load />
+  <Technologies client:visible />
+  <Experience client:visible />
+  <Education client:visible />
+  <FooterCV client:visible />
+</BaseLayout>

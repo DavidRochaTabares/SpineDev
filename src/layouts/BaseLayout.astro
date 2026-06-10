@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import NavigationCV from '../components/NavigationCV';
+import Footer from '../components/Footer.astro';
+import ScrollToTop from '../components/ScrollToTop';
+import LanguageModal from '../components/LanguageModal';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+  hideFooter?: boolean;
+  useCVNav?: boolean;
+}
+
+const { title, description, keywords = '', ogImage = '/og-image.jpg', hideFooter = false, useCVNav = false } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <LanguageModal client:load />
+    {useCVNav ? <NavigationCV client:load /> : <Navigation />}
+    <main>
+      <slot />
+    </main>
+    {!hideFooter && <Footer />}
+    <ScrollToTop client:visible />
+  </body>
+</html>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  }
+</script>
