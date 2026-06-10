@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import NavigationSpineDev from '../components/NavigationSpineDev.astro';
+import FooterSpineDev from '../components/FooterSpineDev.astro';
+import ScrollToTop from '../components/ScrollToTop';
+import WhatsAppButton from '../components/WhatsAppButton';
+import HeroSpineDev from '../components/spinedev/HeroSpineDev';
+import ProblemsSection from '../components/spinedev/ProblemsSection';
+import WhySpineDev from '../components/spinedev/WhySpineDev';
+import ServicesSpineDev from '../components/spinedev/ServicesSpineDev';
+import PortfolioSpineDev from '../components/spinedev/PortfolioSpineDev';
+import ProcessSection from '../components/spinedev/ProcessSection';
+import TechnologiesSpineDev from '../components/spinedev/TechnologiesSpineDev';
+import AboutSpineDev from '../components/spinedev/AboutSpineDev';
+import FAQSection from '../components/spinedev/FAQSection';
+import CTAFinal from '../components/spinedev/CTAFinal';
+
+const title = "SpineDev - Desarrollo de Software, Automatización e IA";
+const description = "Agencia boutique especializada en desarrollo de software a medida, automatizaciones inteligentes e integración de IA para empresas que buscan eficiencia y crecimiento.";
+const keywords = "desarrollo de software, automatización, inteligencia artificial, desarrollo web, MVPs, SaaS, integraciones API, SpineDev";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <ViewTransitions />
+</head>
+<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300">
+  <NavigationSpineDev />
+  <main>
+    <HeroSpineDev client:load />
+    <ProblemsSection client:visible />
+    <WhySpineDev client:visible />
+    <ServicesSpineDev client:visible />
+    <PortfolioSpineDev client:visible />
+    <ProcessSection client:visible />
+    <TechnologiesSpineDev client:visible />
+    <AboutSpineDev client:visible />
+    <FAQSection client:visible />
+    <CTAFinal client:visible />
+  </main>
+  <FooterSpineDev />
+  <WhatsAppButton client:load />
+  <ScrollToTop client:load />
+</body>
+</html>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  }
+</script>
