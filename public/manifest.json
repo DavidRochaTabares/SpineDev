@@ -4,8 +4,8 @@
   "description": "Agencia boutique especializada en desarrollo de software a medida, automatizaciones inteligentes e integración de IA",
   "start_url": "/spinedev",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
   "orientation": "portrait-primary",
   "icons": [
     {
