@@ -18,5 +18,18 @@ export default defineConfig({
     optimizeDeps: {
       include: ["gsap", "gsap/ScrollTrigger"],
     },
+    build: {
+      rollupOptions: {
+        output: {
+          // Asegurar que sw.js no se procese como módulo
+          assetFileNames: (assetInfo) => {
+            if (assetInfo.name === 'sw.js') {
+              return 'sw.js';
+            }
+            return 'assets/[name]-[hash][extname]';
+          },
+        },
+      },
+    },
   },
 });
