@@ -5,6 +5,7 @@ import * as LucideIcons from 'lucide-react';
 import type { Solution, SolutionTab, TabConfig } from '../../data/spinedev/solutions.types';
 import AiAssistantDemo from '../demos/AiAssistantDemo';
 import WorkflowAutomationDemo from '../demos/WorkflowAutomationDemo';
+import IntegrationPlayground from '../demos/integrations/IntegrationPlayground';
 
 interface SolutionModalProps {
   solution: Solution | null;
@@ -150,6 +151,7 @@ export default function SolutionModal({ solution, isOpen, onClose, language }: S
                               {/* Renderizar demo según el componente */}
                               {demo.component === 'AiAssistantDemo' && <AiAssistantDemo language={language} />}
                               {demo.component === 'WorkflowAutomationDemo' && <WorkflowAutomationDemo language={language} />}
+                              {demo.component === 'IntegrationPlayground' && <IntegrationPlayground language={language} />}
                               {/* Futuras demos se agregarán aquí */}
                             </div>
                           ) : (
