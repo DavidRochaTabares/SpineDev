@@ -279,19 +279,24 @@ export const solutions: Solution[] = [
     },
     demos: [
       {
-        id: 'api-integration',
+        id: 'integration-playground',
         name: {
-          es: 'Integración de APIs',
-          en: 'API Integration'
+          es: 'Integration Playground',
+          en: 'Integration Playground'
         },
         description: {
-          es: 'Ejemplo de integración entre sistemas',
-          en: 'Example of system integration'
+          es: 'Descubre cómo las integraciones agregan nuevas capacidades a tu plataforma',
+          en: 'Discover how integrations add new capabilities to your platform'
         },
-        component: 'IntegrationDemo',
-        enabled: false,
-        complexity: 'intermediate',
-        version: '1.0'
+        component: 'IntegrationPlayground',
+        enabled: true,
+        featured: true,
+        complexity: 'simple',
+        version: '1.0',
+        estimatedTime: {
+          es: '2-4 minutos',
+          en: '2-4 minutes'
+        }
       }
     ],
     seo: {
