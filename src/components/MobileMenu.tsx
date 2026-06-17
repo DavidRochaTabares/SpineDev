@@ -16,7 +16,6 @@ export default function MobileMenu() {
   const menuItems = [
     { href: '#inicio', label: t.navigation.home },
     { href: '#soluciones', label: t.navigation.services },
-    { href: '#proceso', label: t.navigation.process },
     { href: '#tecnologias', label: t.navigation.technologies },
     { href: '#sobre-spinedev', label: t.navigation.about },
     { href: '#faq', label: t.navigation.faq },

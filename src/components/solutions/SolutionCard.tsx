@@ -38,19 +38,22 @@ export default function SolutionCard({ solution, language, onClick, index }: Sol
 
         {/* Contenido */}
         <div className="relative p-8 space-y-6">
-          {/* Icono */}
-          <div className={`inline-flex p-4 bg-gradient-to-br ${solution.gradient} rounded-2xl group-hover:scale-110 transition-transform duration-300`}>
-            <Icon className="w-8 h-8 text-white" />
-          </div>
+          {/* Icono, Título y descripción en horizontal */}
+          <div className="flex gap-4">
+            {/* Icono */}
+            <div className={`flex-shrink-0 p-4 bg-gradient-to-br ${solution.gradient} rounded-2xl group-hover:scale-110 transition-transform duration-300 h-fit`}>
+              <Icon className="w-8 h-8 text-white" />
+            </div>
 
-          {/* Título y descripción */}
-          <div>
-            <h3 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-              {solution.title[language]}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              {solution.shortDescription[language]}
-            </p>
+            {/* Título y descripción */}
+            <div className="flex-1">
+              <h3 className="text-xl font-display font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                {solution.title[language]}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                {solution.shortDescription[language]}
+              </p>
+            </div>
           </div>
 
           {/* Beneficio principal */}
@@ -88,13 +91,14 @@ export default function SolutionCard({ solution, language, onClick, index }: Sol
             )}
           </div>
 
-          {/* Botón explorar */}
+          {/* Botón probar demo */}
           <div className="pt-4">
-            <div className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-semibold group-hover:gap-3 transition-all">
-              <span>{language === 'es' ? 'Explorar' : 'Explore'}</span>
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <div className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-bold rounded-lg shadow-md hover:shadow-lg group-hover:scale-105 transition-all">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
+              <span>{language === 'es' ? 'Probar Demo' : 'Try Demo'}</span>
             </div>
           </div>
         </div>

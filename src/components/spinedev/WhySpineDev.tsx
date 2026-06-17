@@ -8,6 +8,7 @@ import {
   RefreshCw,
   TrendingUp,
   Cpu,
+  ArrowRight,
   Target,
 } from "lucide-react";
 import { whySpineDev } from "../../data/spinedev";
@@ -93,6 +94,22 @@ export default function WhySpineDev() {
             <FeatureCard key={feature.id} feature={feature} index={index} language={language} />
           ))}
         </div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-16 text-center"
+        >
+          <a
+            href="#contacto"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white text-lg font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+          >
+            {language === 'es' ? '¡Comencemos tu proyecto!' : 'Let\'s start your project!'}
+            <ArrowRight className="w-6 h-6" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

@@ -80,7 +80,7 @@ export default function HeroSpineDev() {
               damping: 16,
               delay: 0.42,
             }}
-            className="flex flex-col sm:flex-row justify-center gap-4"
+            className="flex justify-center"
           >
             <a
               href={whatsappUrl}
@@ -90,13 +90,6 @@ export default function HeroSpineDev() {
             >
               <span>{t.spinedev.hero.ctaPrimary}</span>
               <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
-            </a>
-
-            <a
-              href="#portafolio"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-lg transition-all duration-300 font-semibold text-lg"
-            >
-              {t.spinedev.hero.ctaSecondary}
             </a>
           </motion.div>
 

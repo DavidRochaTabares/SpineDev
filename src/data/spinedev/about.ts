@@ -16,8 +16,8 @@ export const aboutSpineDev: AboutSpineDev = {
         en: 'Transparency'
       },
       description: {
-        es: 'Comunicación clara, presupuestos fijos y entregas semanales para que siempre sepas en qué estamos trabajando.',
-        en: 'Clear communication, fixed budgets and weekly deliveries so you always know what we\'re working on.'
+        es: 'Seguimiento constante y entregas iterativas para que siempre sepas en qué estamos trabajando.',
+        en: 'Constant tracking and iterative deliveries so you always know what we\'re working on.'
       }
     },
     {

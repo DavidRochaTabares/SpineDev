@@ -1,10 +1,20 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from '../../hooks/useTranslation';
 import { solutions } from '../../data/spinedev/solutions.data';
 import SolutionCard from './SolutionCard';
 import SolutionModal from './SolutionModal';
 import type { Solution } from '../../data/spinedev/solutions.types';
+
+// Mapeo de tipos de demo a IDs de soluciones
+const demoToSolutionMap: Record<string, string> = {
+  'workflow': 'automation-solutions',
+  'integrations': 'integration-solutions',
+  'custom': 'enterprise-software',
+  'automation': 'automation-solutions',
+  'mvp': 'mvp-saas',
+  'team': 'web-development-solutions'
+};
 
 export default function SolutionsSection() {
   const { t, language } = useTranslation();
@@ -24,6 +34,27 @@ export default function SolutionsSection() {
     // Delay para que la animación de salida se complete
     setTimeout(() => setSelectedSolution(null), 300);
   };
+
+  // Escuchar eventos para abrir modal desde otras secciones
+  useEffect(() => {
+    const handleOpenDemoModal = (event: CustomEvent) => {
+      const { type } = event.detail;
+      const solutionId = demoToSolutionMap[type];
+      
+      if (solutionId) {
+        const solution = solutions.find(s => s.id === solutionId);
+        if (solution) {
+          handleOpenModal(solution);
+        }
+      }
+    };
+
+    window.addEventListener('openDemoModal', handleOpenDemoModal as EventListener);
+    
+    return () => {
+      window.removeEventListener('openDemoModal', handleOpenDemoModal as EventListener);
+    };
+  }, []);
 
   // Ordenar soluciones por prioridad
   const sortedSolutions = [...solutions].sort((a, b) => {
@@ -91,20 +122,27 @@ export default function SolutionsSection() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="mt-16 text-center"
           >
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              {language === 'es' 
-                ? '¿No encuentras lo que buscas?' 
-                : "Can't find what you're looking for?"}
-            </p>
-            <a
-              href="#contacto"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
-            >
-              {language === 'es' ? 'Cuéntanos tu proyecto' : 'Tell us about your project'}
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+            <div className="bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 rounded-2xl p-8 sm:p-12 border border-primary-200 dark:border-primary-800">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                {language === 'es' 
+                  ? '¿No encuentras lo que buscas?' 
+                  : "Can't find what you're looking for?"}
+              </h3>
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                {language === 'es' 
+                  ? 'Cada proyecto es único. Cuéntanos tu idea y crearemos la solución perfecta para ti.' 
+                  : 'Every project is unique. Tell us your idea and we\'ll create the perfect solution for you.'}
+              </p>
+              <a
+                href="#contacto"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white text-xl font-bold rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+              >
+                {language === 'es' ? '¡Cuéntanos tu proyecto!' : 'Tell us about your project!'}
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

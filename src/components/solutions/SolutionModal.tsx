@@ -118,17 +118,15 @@ export default function SolutionModal({ solution, isOpen, onClose, language }: S
                       <Icon className="w-8 h-8 sm:w-10 sm:h-10" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-3 mb-2 flex-wrap">
-                        <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold">
-                          {solution.title[language]}
-                        </h2>
-                        {solution.demos && solution.demos.length > 0 && solution.demos.some(d => d.enabled) && (
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold">
-                            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                            {language === 'es' ? 'Demo Interactiva' : 'Interactive Demo'}
-                          </span>
-                        )}
-                      </div>
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold mb-2">
+                        {solution.title[language]}
+                      </h2>
+                      {solution.demos && solution.demos.length > 0 && solution.demos.some(d => d.enabled) && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-semibold mb-2">
+                          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                          {language === 'es' ? 'Demo Interactiva' : 'Interactive Demo'}
+                        </span>
+                      )}
                       <p className="text-sm sm:text-base text-white/90 line-clamp-2">
                         {solution.shortDescription[language]}
                       </p>
