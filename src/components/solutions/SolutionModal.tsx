@@ -243,36 +243,6 @@ export default function SolutionModal({ solution, isOpen, onClose, language }: S
                     </div>
                   </div>
 
-                  {/* Información adicional */}
-                  <div className="flex flex-wrap gap-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                    {solution.estimatedTime && (
-                      <div className="flex items-center gap-3">
-                        <Clock className="w-5 h-5 text-gray-400" />
-                        <div>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">
-                            {language === 'es' ? 'Tiempo estimado' : 'Estimated time'}
-                          </p>
-                          <p className="font-semibold text-gray-900 dark:text-white">
-                            {solution.estimatedTime[language]}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {solution.startingPrice && (
-                      <div className="flex items-center gap-3">
-                        <DollarSign className="w-5 h-5 text-gray-400" />
-                        <div>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">
-                            {language === 'es' ? 'Desde' : 'Starting at'}
-                          </p>
-                          <p className="font-semibold text-gray-900 dark:text-white">
-                            ${solution.startingPrice.amount.toLocaleString()} {solution.startingPrice.currency}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
 
                   {/* CTA */}
                   <div className="flex flex-col sm:flex-row gap-4">
