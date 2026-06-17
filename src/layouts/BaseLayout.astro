@@ -52,8 +52,18 @@ const { title, description, keywords = '', ogImage = '/og-image.jpg', hideFooter
 
 <script>
   if (typeof window !== 'undefined') {
-    const theme = localStorage.getItem('theme');
-    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    // Función para determinar si es de noche basándose en la hora local
+    function isNightTime() {
+      const hour = new Date().getHours();
+      // Considera noche entre las 19:00 (7 PM) y las 6:00 (6 AM)
+      return hour >= 19 || hour < 6;
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Si el usuario ya tiene una preferencia guardada, usarla
+    // Si no, determinar automáticamente según la hora del día
+    if (savedTheme === 'dark' || (!savedTheme && isNightTime())) {
       document.documentElement.classList.add('dark');
     }
   }

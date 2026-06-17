@@ -22,40 +22,11 @@ export default function AboutSpineDev() {
   return (
     <section id="sobre-spinedev" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-4">
-            {t.spinedev.about.title}{" "}
-            <span className="text-secondary-600 dark:text-secondary-400">
-              {t.spinedev.about.titleHighlight}
-            </span>
-          </h2>
-        </motion.div>
-
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto" ref={ref}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-primary-50 dark:bg-primary-900/20 rounded-2xl p-8 md:p-12 mb-12"
-          >
-            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-              {aboutSpineDev.mission[language]}
-            </p>
-            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-              {aboutSpineDev.vision[language]}
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
             className="grid md:grid-cols-3 gap-8 mb-12"
           >
             {aboutSpineDev.values.map((value, index) => {
@@ -67,7 +38,7 @@ export default function AboutSpineDev() {
                   animate={
                     isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
                   }
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="text-center md:text-center"
                 >
                   {/* Desktop: icono arriba centrado */}
@@ -101,7 +72,7 @@ export default function AboutSpineDev() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="grid grid-cols-3 gap-8 bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700"
           >
             {aboutSpineDev.stats.map((stat, index) => (
@@ -120,7 +91,7 @@ export default function AboutSpineDev() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6, delay: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             className="mt-12 text-center"
           >
             <a

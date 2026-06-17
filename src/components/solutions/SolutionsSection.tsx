@@ -68,7 +68,7 @@ export default function SolutionsSection() {
       <section 
         id="soluciones" 
         ref={ref}
-        className="py-20 sm:py-24 lg:py-32 bg-white dark:bg-gray-950"
+        className="py-20 sm:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}

@@ -56,23 +56,30 @@ export default function SolutionCard({ solution, language, onClick, index }: Sol
             </div>
           </div>
 
-          {/* Beneficio principal */}
-          {solution.benefits[0] && (
-            <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
-              {solution.benefits[0].icon && (() => {
-                const BenefitIcon = LucideIcons[solution.benefits[0].icon as keyof typeof LucideIcons] as React.ComponentType<{ className?: string }>;
-                return <BenefitIcon className="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />;
-              })()}
-              <div>
-                <p className="font-semibold text-gray-900 dark:text-white text-sm mb-1">
-                  {solution.benefits[0].title[language]}
+          {/* Problema que resuelve */}
+          <div className="p-4 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/10 dark:to-red-900/10 rounded-xl border-l-4 border-orange-500 dark:border-orange-400">
+            <div className="flex items-start gap-3 mb-2">
+              <svg className="w-5 h-5 text-orange-600 dark:text-orange-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <div className="flex-1">
+                <p className="text-xs font-semibold text-orange-700 dark:text-orange-300 mb-1">
+                  {language === 'es' ? 'Problema que podrías estar teniendo' : 'Problem you might be facing'}
                 </p>
-                <p className="text-xs text-gray-600 dark:text-gray-400">
-                  {solution.benefits[0].description[language]}
+                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {solution.problem[language]}
                 </p>
               </div>
             </div>
-          )}
+            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-orange-200 dark:border-orange-800/30">
+              <svg className="w-4 h-4 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-xs font-semibold text-green-700 dark:text-green-300">
+                {language === 'es' ? 'Tenemos la solución perfecta para ti' : 'We have the perfect solution for you'}
+              </p>
+            </div>
+          </div>
 
           {/* Tecnologías (máximo 4) */}
           <div className="flex flex-wrap gap-2">
@@ -91,14 +98,13 @@ export default function SolutionCard({ solution, language, onClick, index }: Sol
             )}
           </div>
 
-          {/* Botón probar demo */}
+          {/* Botón ver solución */}
           <div className="pt-4">
             <div className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white font-bold rounded-lg shadow-md hover:shadow-lg group-hover:scale-105 transition-all">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>{language === 'es' ? 'Probar Demo' : 'Try Demo'}</span>
+              <span>{language === 'es' ? 'Probar solución' : 'Try solution'}</span>
             </div>
           </div>
         </div>
