@@ -16,7 +16,7 @@ export default function CTAFinal() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
   return (
-    <section id="contacto" className="py-16 sm:py-20 lg:py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="contacto" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={ref}
@@ -36,21 +36,23 @@ export default function CTAFinal() {
                 transition={{ duration: 0.3 }}
                 className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-2xl text-center"
               >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4, type: "spring" }}
-                  className="inline-flex p-4 sm:p-5 lg:p-6 bg-green-500 rounded-full mb-4 sm:mb-6 shadow-lg"
-                >
-                  <MessageCircle className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 text-white" />
-                </motion.div>
+                <div className="flex items-center justify-center gap-4 mb-3 sm:mb-4">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : { scale: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4, type: "spring" }}
+                    className="flex-shrink-0 p-3 sm:p-4 bg-green-500 rounded-full shadow-lg"
+                  >
+                    <MessageCircle className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                  </motion.div>
 
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mb-3 sm:mb-4">
-                  {t.spinedev.cta.title}{" "}
-                  <span className="text-secondary-600 dark:text-secondary-400">
-                    {t.spinedev.cta.titleHighlight}
-                  </span>
-                </h2>
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-left">
+                    {t.spinedev.cta.title}{" "}
+                    <span className="text-secondary-600 dark:text-secondary-400">
+                      {t.spinedev.cta.titleHighlight}
+                    </span>
+                  </h2>
+                </div>
 
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8">
                   {t.spinedev.cta.subtitle}

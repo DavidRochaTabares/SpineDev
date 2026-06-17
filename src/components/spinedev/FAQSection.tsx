@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { faqs } from "../../data/spinedev";
 
 function FAQItem({ faq, index, language }: { faq: (typeof faqs)[0]; index: number; language: 'es' | 'en' }) {
@@ -54,7 +54,7 @@ export default function FAQSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="faq" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-gray-950">
+    <section id="faq" className="py-16 sm:py-20 lg:py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -86,28 +86,23 @@ export default function FAQSection() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            {t.spinedev.faq.otherQuestion}
-          </p>
-          <a
-            href="#contacto"
-            className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-semibold transition-colors"
-          >
-            {t.spinedev.faq.contactUs}
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-primary-900/20 dark:to-secondary-900/20 rounded-2xl p-8 sm:p-10 border border-primary-200 dark:border-primary-800">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              {t.spinedev.faq.otherQuestion}
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-xl mx-auto">
+              {language === 'es' 
+                ? 'Estamos aquí para ayudarte. Contáctanos y resolveremos todas tus dudas.' 
+                : 'We\'re here to help. Contact us and we\'ll answer all your questions.'}
+            </p>
+            <a
+              href="#contacto"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white text-xl font-bold rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </a>
+              {t.spinedev.faq.contactUs}
+              <ArrowRight className="w-6 h-6" />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

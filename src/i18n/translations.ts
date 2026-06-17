@@ -105,7 +105,7 @@ export const translations = {
         title: "Construido con tecnologías",
         titleHighlight: "modernas y confiables",
         subtitle: "Utilizamos herramientas probadas que garantizan rendimiento, escalabilidad y mantenibilidad",
-        quote: "Elegimos la tecnología según tu necesidad, no al revés"
+        quote: "Elegimos la tecnología según tu necesidad"
       },
       about: {
         title: "Más que código,",
@@ -241,7 +241,7 @@ export const translations = {
         title: "Built with",
         titleHighlight: "modern and reliable technologies",
         subtitle: "We use proven tools that guarantee performance, scalability and maintainability",
-        quote: "We choose technology based on your needs, not the other way around"
+        quote: "We choose technology based on your needs"
       },
       about: {
         title: "More than code,",

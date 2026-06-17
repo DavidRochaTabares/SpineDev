@@ -9,7 +9,6 @@ import PWAInstallPrompt from '../components/PWAInstallPrompt';
 import HeroSpineDev from '../components/spinedev/HeroSpineDev';
 import ProblemsSection from '../components/spinedev/ProblemsSection';
 import WhySpineDev from '../components/spinedev/WhySpineDev';
-import ProcessSection from '../components/spinedev/ProcessSection';
 import TechnologiesSpineDev from '../components/spinedev/TechnologiesSpineDev';
 import AboutSpineDev from '../components/spinedev/AboutSpineDev';
 import FAQSection from '../components/spinedev/FAQSection';
@@ -55,10 +54,9 @@ const keywords = "desarrollo de software, automatización, inteligencia artifici
   <NavigationSpineDev />
   <main>
     <HeroSpineDev client:load />
-    <ProblemsSection client:visible />
+    <ProblemsSection client:idle />
     <WhySpineDev client:visible />
-    <SolutionsSection client:load />
-    <ProcessSection client:visible />
+    <SolutionsSection client:idle />
     <TechnologiesSpineDev client:visible />
     <AboutSpineDev client:visible />
     <FAQSection client:visible />

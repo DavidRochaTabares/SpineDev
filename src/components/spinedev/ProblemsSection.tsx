@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 import {
   FileText,
@@ -9,6 +9,7 @@ import {
   RotateCw,
   Clock,
   Users,
+  ArrowRight,
 } from "lucide-react";
 import { problems } from "../../data/spinedev";
 
@@ -19,6 +20,16 @@ const iconMap: Record<string, any> = {
   RotateCw,
   Clock,
   Users,
+};
+
+// Mapeo de problemas a demos
+const problemToDemoMap: Record<string, string> = {
+  'manual-processes': 'workflow',
+  'disconnected-systems': 'integrations',
+  'generic-software': 'custom',
+  'repetitive-tasks': 'automation',
+  'slow-mvp': 'mvp',
+  'no-tech-team': 'team'
 };
 
 function ProblemCard({
@@ -33,6 +44,20 @@ function ProblemCard({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const Icon = iconMap[problem.icon];
+
+  const handleOpenDemo = () => {
+    const demoType = problemToDemoMap[problem.id];
+    
+    if (demoType) {
+      // Disparar evento personalizado para abrir el modal
+      const event = new CustomEvent('openDemoModal', { 
+        detail: { type: demoType },
+        bubbles: true,
+        composed: true
+      });
+      window.dispatchEvent(event);
+    }
+  };
 
   return (
     <motion.div
@@ -58,9 +83,18 @@ function ProblemCard({
           {problem.description[language]}
         </p>
 
-        <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+        <p className="text-xs text-gray-500 dark:text-gray-400 italic mb-4">
           {problem.impact[language]}
         </p>
+
+        {/* Botón para ver solución */}
+        <button
+          onClick={handleOpenDemo}
+          className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white rounded-lg font-semibold text-sm transition-all group-hover:shadow-lg"
+        >
+          {language === 'es' ? 'Ver solución' : 'See solution'}
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </button>
       </div>
     </motion.div>
   );
@@ -97,6 +131,22 @@ export default function ProblemsSection() {
             <ProblemCard key={problem.id} problem={problem} index={index} language={language} />
           ))}
         </div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-16 text-center"
+        >
+          <a
+            href="#contacto"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white text-lg font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+          >
+            {language === 'es' ? '¡Resolvamos tu problema ahora!' : 'Let\'s solve your problem now!'}
+            <ArrowRight className="w-6 h-6" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

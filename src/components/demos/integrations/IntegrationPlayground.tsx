@@ -117,6 +117,32 @@ export default function IntegrationPlayground({ language = 'es' }: IntegrationPl
         )}
       </div>
 
+      {/* Selector de integraciones */}
+      <IntegrationCarousel
+        integrations={integrations}
+        selectedId={selectedIntegrationId}
+        onSelect={handleSelectIntegration}
+        language={language}
+        activeIntegrations={activeIntegrations}
+      />
+
+      {/* Beneficios de integración seleccionada */}
+      <AnimatePresence>
+        {selectedIntegrationId && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="space-y-3"
+          >
+            <IntegrationBenefits
+              integration={integrations.find(i => i.id === selectedIntegrationId)!}
+              language={language}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Producto con capacidades acumulativas */}
       <ProductPlatform
         language={language}
@@ -157,54 +183,23 @@ export default function IntegrationPlayground({ language = 'es' }: IntegrationPl
         </div>
       </ProductPlatform>
 
-      {/* Selector de integraciones */}
-      <IntegrationCarousel
-        integrations={integrations}
-        selectedId={selectedIntegrationId}
-        onSelect={handleSelectIntegration}
-        language={language}
-        activeIntegrations={activeIntegrations}
-      />
-
-      {/* Beneficios de integración seleccionada */}
-      <AnimatePresence>
-        {selectedIntegrationId && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="space-y-3"
-          >
-            <IntegrationBenefits
-              integration={integrations.find(i => i.id === selectedIntegrationId)!}
-              language={language}
-            />
-            
-            {/* Explicación sobre más integraciones */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="px-4"
-            >
-              <div className="bg-gradient-to-r from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20 rounded-xl p-4 sm:p-6 border border-primary-200 dark:border-primary-800">
-                <div className="text-left">
-                  <h5 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white mb-1">
-                    {language === 'es' 
-                      ? 'Cientos de integraciones disponibles'
-                      : 'Hundreds of integrations available'}
-                  </h5>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    {language === 'es' 
-                      ? 'Estas son solo ejemplos. Trabajamos con cualquier API o servicio que tu proyecto necesite. Implementamos las integraciones específicas para tu caso de uso.'
-                      : 'These are just examples. We work with any API or service your project needs. We implement specific integrations for your use case.'}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Explicación sobre más integraciones - SIEMPRE VISIBLE */}
+      <div className="px-4">
+        <div className="bg-gradient-to-r from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20 rounded-xl p-4 sm:p-6 border border-primary-200 dark:border-primary-800">
+          <div className="text-left">
+            <h5 className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white mb-1">
+              {language === 'es' 
+                ? 'Cientos de integraciones disponibles'
+                : 'Hundreds of integrations available'}
+            </h5>
+            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+              {language === 'es' 
+                ? 'Estas son solo ejemplos. Trabajamos con cualquier API o servicio que tu proyecto necesite. Implementamos las integraciones específicas para tu caso de uso.'
+                : 'These are just examples. We work with any API or service your project needs. We implement specific integrations for your use case.'}
+            </p>
+          </div>
+        </div>
+      </div>
 
     </div>
   );
