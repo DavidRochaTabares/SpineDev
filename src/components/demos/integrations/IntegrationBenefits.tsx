@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, TrendingUp, Zap } from 'lucide-react';
 import { getTechLogo } from './icons/TechLogos';
 import type { Integration } from './data/integrationsData';
@@ -9,6 +10,17 @@ interface IntegrationBenefitsProps {
 }
 
 export default function IntegrationBenefits({ integration, language }: IntegrationBenefitsProps) {
+  const [productIndex, setProductIndex] = useState(0);
+  const products = language === 'es' 
+    ? ['App', 'Web', 'SaaS', 'Plataforma']
+    : ['App', 'Web', 'SaaS', 'Platform'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProductIndex((prev) => (prev + 1) % products.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [products.length]);
   const benefits = {
     'openai': {
       es: {
@@ -142,20 +154,73 @@ export default function IntegrationBenefits({ integration, language }: Integrati
           </div>
         </div>
 
-        {/* Botones de acción */}
-        <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
-          <button
-            onClick={() => window.dispatchEvent(new CustomEvent('cancelIntegration'))}
-            className="flex-1 px-6 py-3 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-600 rounded-lg font-semibold transition-all"
-          >
-            {language === 'es' ? 'Cancelar' : 'Cancel'}
-          </button>
-          <button
-            onClick={() => window.dispatchEvent(new CustomEvent('confirmIntegration'))}
-            className="flex-1 px-6 py-3 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
-          >
-            {language === 'es' ? 'Agregar a mi producto' : 'Add to my product'}
-          </button>
+        {/* Animación visual de integración */}
+        <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex items-center justify-center gap-4 p-6 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
+            {/* Producto del usuario */}
+            <motion.div
+              className="relative w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex flex-col items-center justify-center shadow-lg overflow-hidden"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
+              <div className="text-xs font-bold text-white/60 uppercase tracking-wider mb-1">
+                {language === 'es' ? 'Tu' : 'Your'}
+              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={productIndex}
+                  className="text-base font-bold text-white"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  {products[productIndex]}
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
+
+            {/* Flecha de conexión animada */}
+            <motion.div
+              className="flex items-center"
+              animate={{ x: [0, -8, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <svg 
+                className="w-12 h-12 text-primary-600 dark:text-primary-400" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <motion.path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M11 17l-5-5m0 0l5-5m-5 5h12"
+                  animate={{ 
+                    pathLength: [0.8, 1, 0.8],
+                    opacity: [0.6, 1, 0.6]
+                  }}
+                  transition={{ 
+                    duration: 1.8, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                />
+              </svg>
+            </motion.div>
+
+            {/* Integración */}
+            <motion.div
+              className="relative w-16 h-16 rounded-lg flex items-center justify-center shadow-lg"
+              style={{ backgroundColor: `${integration.color}20` }}
+              animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0, -5, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              {getTechLogo(integration.icon, 'w-10 h-10')}
+            </motion.div>
+          </div>
         </div>
       </div>
     </motion.div>
