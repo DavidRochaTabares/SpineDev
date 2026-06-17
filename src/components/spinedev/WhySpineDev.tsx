@@ -69,7 +69,7 @@ export default function WhySpineDev() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="why-spinedev" className="py-16 sm:py-20 lg:py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="why-spinedev" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}

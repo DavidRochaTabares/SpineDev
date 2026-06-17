@@ -6,8 +6,8 @@ import FooterSpineDev from '../components/FooterSpineDev.astro';
 import ScrollToTop from '../components/ScrollToTop';
 import WhatsAppButton from '../components/WhatsAppButton';
 import PWAInstallPrompt from '../components/PWAInstallPrompt';
+import LanguageModal from '../components/LanguageModal';
 import HeroSpineDev from '../components/spinedev/HeroSpineDev';
-import ProblemsSection from '../components/spinedev/ProblemsSection';
 import WhySpineDev from '../components/spinedev/WhySpineDev';
 import TechnologiesSpineDev from '../components/spinedev/TechnologiesSpineDev';
 import AboutSpineDev from '../components/spinedev/AboutSpineDev';
@@ -51,12 +51,12 @@ const keywords = "desarrollo de software, automatización, inteligencia artifici
   <ViewTransitions />
 </head>
 <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300">
+  <LanguageModal client:load />
   <NavigationSpineDev />
   <main>
     <HeroSpineDev client:load />
-    <ProblemsSection client:idle />
-    <WhySpineDev client:visible />
     <SolutionsSection client:idle />
+    <WhySpineDev client:visible />
     <TechnologiesSpineDev client:visible />
     <AboutSpineDev client:visible />
     <FAQSection client:visible />
@@ -71,8 +71,18 @@ const keywords = "desarrollo de software, automatización, inteligencia artifici
 
 <script>
   if (typeof window !== 'undefined') {
-    const theme = localStorage.getItem('theme');
-    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    // Función para determinar si es de noche basándose en la hora local
+    function isNightTime() {
+      const hour = new Date().getHours();
+      // Considera noche entre las 19:00 (7 PM) y las 6:00 (6 AM)
+      return hour >= 19 || hour < 6;
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Si el usuario ya tiene una preferencia guardada, usarla
+    // Si no, determinar automáticamente según la hora del día
+    if (savedTheme === 'dark' || (!savedTheme && isNightTime())) {
       document.documentElement.classList.add('dark');
     }
 

@@ -118,6 +118,10 @@ export interface Solution {
     es: string;
     en: string;
   };
+  problem: {
+    es: string;
+    en: string;
+  };
   shortDescription: {
     es: string;
     en: string;

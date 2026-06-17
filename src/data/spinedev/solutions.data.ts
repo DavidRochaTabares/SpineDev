@@ -11,6 +11,10 @@ export const solutions: Solution[] = [
       es: 'Inteligencia Artificial',
       en: 'Artificial Intelligence'
     },
+    problem: {
+      es: 'Tareas repetitivas que consumen tiempo valioso y procesos que podrían ser más eficientes con automatización inteligente.',
+      en: 'Repetitive tasks consuming valuable time and processes that could be more efficient with intelligent automation.'
+    },
     shortDescription: {
       es: 'Asistentes inteligentes y automatización con IA para tu negocio',
       en: 'Intelligent assistants and AI automation for your business'
@@ -114,6 +118,10 @@ export const solutions: Solution[] = [
     title: {
       es: 'Automatización',
       en: 'Automation'
+    },
+    problem: {
+      es: 'Horas perdidas copiando datos entre sistemas y realizando tareas manuales que generan errores frecuentes.',
+      en: 'Hours wasted copying data between systems and performing manual tasks that generate frequent errors.'
     },
     shortDescription: {
       es: 'Automatiza procesos repetitivos y ahorra tiempo valioso',
@@ -219,6 +227,10 @@ export const solutions: Solution[] = [
       es: 'Integraciones',
       en: 'Integrations'
     },
+    problem: {
+      es: 'Sistemas desconectados que no se comunican entre sí, generando silos de información y datos duplicados.',
+      en: 'Disconnected systems that don\'t communicate with each other, creating information silos and duplicate data.'
+    },
     shortDescription: {
       es: 'Conecta todas tus herramientas en un ecosistema unificado',
       en: 'Connect all your tools in a unified ecosystem'
@@ -322,6 +334,10 @@ export const solutions: Solution[] = [
       es: 'Desarrollo Web',
       en: 'Web Development'
     },
+    problem: {
+      es: 'Necesitas presencia digital profesional pero no cuentas con un equipo técnico interno para ejecutar proyectos web.',
+      en: 'You need professional digital presence but don\'t have an internal technical team to execute web projects.'
+    },
     shortDescription: {
       es: 'Sitios web modernos, rápidos y optimizados para conversión',
       en: 'Modern, fast websites optimized for conversion'
@@ -420,6 +436,10 @@ export const solutions: Solution[] = [
       es: 'Software Empresarial',
       en: 'Enterprise Software'
     },
+    problem: {
+      es: 'Software genérico que no se adapta a tus procesos específicos, generando workarounds complejos y baja adopción.',
+      en: 'Generic software that doesn\'t adapt to your specific processes, generating complex workarounds and low adoption.'
+    },
     shortDescription: {
       es: 'Soluciones a medida para empresas que buscan escalar',
       en: 'Custom solutions for companies looking to scale'
@@ -517,6 +537,10 @@ export const solutions: Solution[] = [
     title: {
       es: 'MVPs y SaaS',
       en: 'MVPs and SaaS'
+    },
+    problem: {
+      es: 'Necesitas validar tu idea rápidamente pero el desarrollo tradicional toma meses y la competencia se adelanta.',
+      en: 'You need to validate your idea quickly but traditional development takes months and competition gets ahead.'
     },
     shortDescription: {
       es: 'Lanza tu producto digital en semanas, no meses',

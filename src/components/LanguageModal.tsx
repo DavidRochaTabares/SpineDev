@@ -5,18 +5,24 @@ export default function LanguageModal() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const savedLang = localStorage.getItem('language');
+    const hasVisited = localStorage.getItem('hasVisitedBefore');
     
-    // Si no hay idioma guardado, mostrar modal
-    if (!savedLang) {
+    // Si es la primera vez que visita la página, mostrar modal
+    if (!hasVisited) {
       setTimeout(() => setIsOpen(true), 500);
     }
   }, []);
 
   const selectLanguage = (lang: 'es' | 'en') => {
     localStorage.setItem('language', lang);
+    localStorage.setItem('hasVisitedBefore', 'true');
     document.documentElement.setAttribute('data-language', lang);
     window.dispatchEvent(new CustomEvent('languageChange', { detail: lang }));
+    setIsOpen(false);
+  };
+
+  const closeModal = () => {
+    localStorage.setItem('hasVisitedBefore', 'true');
     setIsOpen(false);
   };
 
@@ -38,8 +44,18 @@ export default function LanguageModal() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full p-8 border border-gray-200 dark:border-gray-700"
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full p-8 border border-gray-200 dark:border-gray-700 relative"
             >
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
+                aria-label="Cerrar"
+              >
+                <svg className="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              
               <div className="text-center mb-8">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-full mb-4">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

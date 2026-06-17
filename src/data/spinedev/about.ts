@@ -51,17 +51,17 @@ export const aboutSpineDev: AboutSpineDev = {
     },
     {
       label: {
-        es: 'Proyectos entregados',
-        en: 'Projects delivered'
+        es: 'Tecnologías dominadas',
+        en: 'Technologies mastered'
       },
-      value: '20+'
+      value: '15+'
     },
     {
       label: {
-        es: 'Clientes satisfechos',
-        en: 'Satisfied clients'
+        es: 'Tiempo de respuesta',
+        en: 'Response time'
       },
-      value: '100%'
+      value: '24h'
     }
   ]
 };
