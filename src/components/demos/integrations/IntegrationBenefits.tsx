@@ -84,9 +84,9 @@ export default function IntegrationBenefits({ integration, language }: Integrati
       className="bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg"
     >
       {/* Header con logo */}
-      <div className={`bg-gradient-to-r from-${integration.color}-50 to-${integration.color}-100 dark:from-${integration.color}-900/20 dark:to-${integration.color}-800/20 p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700`}>
+      <div className="bg-gray-50 dark:bg-gray-800/50 p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 bg-white dark:bg-gray-800 rounded-xl flex items-center justify-center shadow-md">
+          <div className="w-16 h-16 bg-white dark:bg-gray-900 rounded-xl flex items-center justify-center shadow-md text-gray-900 dark:text-white">
             {getTechLogo(integration.icon, 'w-10 h-10')}
           </div>
           <div className="flex-1">
