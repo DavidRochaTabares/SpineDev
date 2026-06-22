@@ -24,7 +24,7 @@ export const webSolutions: WebSolution[] = [
       es: 'Landing Page',
       en: 'Landing Page'
     },
-    icon: '🌐',
+    icon: '',
     idealFor: {
       es: ['Startups', 'Lanzamiento de productos', 'Campañas de marketing', 'Captación de leads'],
       en: ['Startups', 'Product launches', 'Marketing campaigns', 'Lead generation']
@@ -42,7 +42,7 @@ export const webSolutions: WebSolution[] = [
       es: 'Sitio Corporativo',
       en: 'Corporate Website'
     },
-    icon: '🏢',
+    icon: '',
     idealFor: {
       es: ['Empresas establecidas', 'Servicios profesionales', 'Consultorías', 'Instituciones'],
       en: ['Established companies', 'Professional services', 'Consultancies', 'Institutions']
@@ -60,7 +60,7 @@ export const webSolutions: WebSolution[] = [
       es: 'E-commerce',
       en: 'E-commerce'
     },
-    icon: '🛒',
+    icon: '',
     idealFor: {
       es: ['Tiendas online', 'Retail', 'Productos físicos', 'Productos digitales'],
       en: ['Online stores', 'Retail', 'Physical products', 'Digital products']
@@ -78,7 +78,7 @@ export const webSolutions: WebSolution[] = [
       es: 'Dashboard Empresarial',
       en: 'Business Dashboard'
     },
-    icon: '📊',
+    icon: '',
     idealFor: {
       es: ['Gestión interna', 'Análisis de datos', 'Reportes ejecutivos', 'Operaciones'],
       en: ['Internal management', 'Data analysis', 'Executive reports', 'Operations']
@@ -96,7 +96,7 @@ export const webSolutions: WebSolution[] = [
       es: 'Portal de Clientes',
       en: 'Client Portal'
     },
-    icon: '👥',
+    icon: '',
     idealFor: {
       es: ['Servicios B2B', 'Gestión de clientes', 'Autoservicio', 'Soporte'],
       en: ['B2B services', 'Client management', 'Self-service', 'Support']
@@ -114,7 +114,7 @@ export const webSolutions: WebSolution[] = [
       es: 'Plataforma SaaS',
       en: 'SaaS Platform'
     },
-    icon: '🚀',
+    icon: '',
     idealFor: {
       es: ['Software como servicio', 'Productos digitales', 'Suscripciones', 'Escalabilidad'],
       en: ['Software as a service', 'Digital products', 'Subscriptions', 'Scalability']
