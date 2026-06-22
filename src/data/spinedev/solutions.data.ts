@@ -398,17 +398,17 @@ export const solutions: Solution[] = [
     },
     demos: [
       {
-        id: 'interactive-website',
+        id: 'web-solution-showcase',
         name: {
-          es: 'Sitio Web Interactivo',
-          en: 'Interactive Website'
+          es: 'Galería de Soluciones Web',
+          en: 'Web Solutions Gallery'
         },
         description: {
-          es: 'Preview de sitio web moderno y responsive',
-          en: 'Preview of modern and responsive website'
+          es: 'Explora los diferentes tipos de productos digitales que podemos construir',
+          en: 'Explore the different types of digital products we can build'
         },
-        component: 'WebsiteDemo',
-        enabled: false,
+        component: 'WebSolutionShowcase',
+        enabled: true,
         complexity: 'simple',
         version: '1.0'
       }
