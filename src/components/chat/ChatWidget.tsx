@@ -6,11 +6,29 @@ import { demoTracking } from '../../services/demoTracking';
 import { getOpenAIService } from '../../services/openaiService';
 import LeadCaptureForm from './LeadCaptureForm';
 
+const CHAT_SYSTEM_PROMPT = `You are a project advisor for SpineDev, a Colombian software development company.
+
+Your goal is:
+1. Understand what the user wants to build in a natural and conversational way
+2. Ask follow-up questions when necessary to clarify
+3. After 2-3 exchanges, offer to schedule a call or continue via WhatsApp
+
+IMPORTANT LANGUAGE RULE:
+- Detect the language the user is writing in (Spanish or English)
+- ALWAYS respond in the SAME language the user is using
+- If user writes in Spanish, respond in Spanish
+- If user writes in English, respond in English
+- Maintain consistency throughout the conversation
+
+Keep responses concise (maximum 3-4 lines). Be friendly but professional.
+Do NOT use emojis in your responses.`;
+
 interface ChatWidgetProps {
   language?: 'es' | 'en';
 }
 
-export default function ChatWidget({ language = 'es' }: ChatWidgetProps) {
+export default function ChatWidget({ language: initialLanguage = 'es' }: ChatWidgetProps) {
+  const [language, setLanguage] = useState<'es' | 'en'>(initialLanguage);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
@@ -25,14 +43,33 @@ export default function ChatWidget({ language = 'es' }: ChatWidgetProps) {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // Leer idioma de localStorage y escuchar cambios
+  useEffect(() => {
+    const savedLang = localStorage.getItem('language') as 'es' | 'en' | null;
+    if (savedLang) {
+      setLanguage(savedLang);
+      setContext(prev => ({ ...prev, language: savedLang }));
+    }
+
+    const handleLanguageChange = (e: CustomEvent<'es' | 'en'>) => {
+      setLanguage(e.detail);
+      setContext(prev => ({ ...prev, language: e.detail }));
+    };
+
+    window.addEventListener('languageChange', handleLanguageChange as EventListener);
+    return () => {
+      window.removeEventListener('languageChange', handleLanguageChange as EventListener);
+    };
+  }, []);
+
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       // Initial greeting
       const greeting: ChatMessage = {
         role: 'assistant',
         content: language === 'es' 
-          ? 'Hola 👋\n\nCuéntame brevemente qué te gustaría construir o mejorar.'
-          : 'Hi 👋\n\nTell me briefly what you\'re looking to build or improve.',
+          ? 'Hola\n\nCuéntame brevemente qué te gustaría construir o mejorar.'
+          : 'Hi\n\nTell me briefly what you\'re looking to build or improve.',
         timestamp: Date.now()
       };
       setMessages([greeting]);
@@ -73,10 +110,10 @@ export default function ChatWidget({ language = 'es' }: ChatWidgetProps) {
         content: m.content
       }));
 
-      const responseText = await openAIService.sendMessage(
+      const responseText = await openAIService.sendMessageWithPrompt(
         userMessage.content,
         conversationHistory,
-        context.language
+        CHAT_SYSTEM_PROMPT
       );
 
       const assistantMessage: ChatMessage = {

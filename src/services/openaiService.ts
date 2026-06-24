@@ -114,6 +114,18 @@ export class OpenAIService {
     conversationHistory: ChatMessage[] = [],
     language: 'es' | 'en' = 'es'
   ): Promise<string> {
+    return this.sendMessageWithPrompt(
+      userMessage,
+      conversationHistory,
+      SYSTEM_PROMPTS[language]
+    );
+  }
+
+  async sendMessageWithPrompt(
+    userMessage: string,
+    conversationHistory: ChatMessage[] = [],
+    systemPrompt: string
+  ): Promise<string> {
     if (!this.apiKey) {
       throw new Error('API key no configurada');
     }
@@ -121,9 +133,9 @@ export class OpenAIService {
     // Limitar historial de conversación
     const limitedHistory = conversationHistory.slice(-this.maxMessages);
 
-    // Construir mensajes con el prompt del idioma correcto
+    // Construir mensajes con el prompt personalizado
     const messages: ChatMessage[] = [
-      { role: 'system', content: SYSTEM_PROMPTS[language] },
+      { role: 'system', content: systemPrompt },
       ...limitedHistory,
       { role: 'user', content: userMessage }
     ];
