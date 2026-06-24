@@ -126,11 +126,18 @@ export default function ChatWidget({ language: initialLanguage = 'es' }: ChatWid
 
       // Update context
       const newMessageCount = context.messageCount + 1;
+      
+      // Concatenar todos los mensajes del usuario para tener un resumen completo
+      const allUserMessages = [...messages, userMessage]
+        .filter(m => m.role === 'user')
+        .map(m => m.content)
+        .join(' | ');
+      
       setContext(prev => ({
         ...prev,
         messageCount: newMessageCount,
         userRequest: userMessage.content,
-        projectSummary: responseText
+        projectSummary: allUserMessages
       }));
 
       // Show lead capture after 3 exchanges
