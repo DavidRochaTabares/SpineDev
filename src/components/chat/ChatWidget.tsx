@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
 import type { ChatMessage, ConversationContext, LeadCaptureData } from '../../types/lead.types';
 import { demoTracking } from '../../services/demoTracking';
+import { getOpenAIService } from '../../services/openaiService';
 import LeadCaptureForm from './LeadCaptureForm';
 
 interface ChatWidgetProps {
@@ -65,31 +66,22 @@ export default function ChatWidget({ language = 'es' }: ChatWidgetProps) {
     }
 
     try {
-      // Limpiar mensajes (solo role y content)
-      const cleanMessages = [...messages, userMessage].map(m => ({
-        role: m.role,
+      const openAIService = getOpenAIService();
+      
+      const conversationHistory = messages.map(m => ({
+        role: m.role as 'user' | 'assistant',
         content: m.content
       }));
 
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: cleanMessages,
-          visitedDemos: context.visitedDemos,
-          language: context.language
-        })
-      });
-
-      if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
-      }
-
-      const data = await response.json();
+      const responseText = await openAIService.sendMessage(
+        userMessage.content,
+        conversationHistory,
+        context.language
+      );
 
       const assistantMessage: ChatMessage = {
         role: 'assistant',
-        content: data.message,
+        content: responseText,
         timestamp: Date.now()
       };
 
@@ -100,20 +92,12 @@ export default function ChatWidget({ language = 'es' }: ChatWidgetProps) {
       setContext(prev => ({
         ...prev,
         messageCount: newMessageCount,
-        detectedService: data.detectedService,
-        projectSummary: data.projectSummary
+        userRequest: userMessage.content,
+        projectSummary: responseText
       }));
 
-      // Show lead capture only after 3 exchanges (6 messages total: 3 user + 3 assistant)
-      // O si GPT menciona explícitamente capturar datos
-      const shouldShowForm = newMessageCount >= 3 || 
-        (data.message && (
-          data.message.toLowerCase().includes('déjame tus datos') ||
-          data.message.toLowerCase().includes('comparte tus datos') ||
-          data.message.toLowerCase().includes('share your contact')
-        ));
-
-      if (shouldShowForm) {
+      // Show lead capture after 3 exchanges
+      if (newMessageCount >= 3) {
         setTimeout(() => setShowLeadCapture(true), 1500);
       }
 
