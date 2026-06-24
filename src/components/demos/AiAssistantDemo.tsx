@@ -13,6 +13,7 @@ import {
   findResponse,
   type SuggestedQuestion 
 } from './data/aiAssistantData.i18n';
+import { demoTracking } from '../../services/demoTracking';
 
 interface Message {
   id: string;
@@ -42,6 +43,8 @@ export default function AiAssistantDemo({ language = 'es' }: AiAssistantDemoProp
   const [enableAutoScroll, setEnableAutoScroll] = useState(false);
 
   useEffect(() => {
+    demoTracking.track('ai');
+    
     const timer = setTimeout(() => {
       addAssistantMessage(welcomeMessage[language]);
     }, 500);

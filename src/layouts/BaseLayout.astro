@@ -3,6 +3,7 @@ import '../styles/global.css';
 import NavigationCV from '../components/NavigationCV';
 import ScrollToTop from '../components/ScrollToTop';
 import LanguageModal from '../components/LanguageModal';
+import ChatWidget from '../components/chat/ChatWidget';
 
 interface Props {
   title: string;
@@ -47,6 +48,7 @@ const { title, description, keywords = '', ogImage = '/og-image.jpg', hideFooter
       <slot />
     </main>
     <ScrollToTop client:visible />
+    <ChatWidget client:load language="es" />
   </body>
 </html>
 

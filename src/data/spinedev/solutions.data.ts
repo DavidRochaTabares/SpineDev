@@ -500,18 +500,18 @@ export const solutions: Solution[] = [
     },
     demos: [
       {
-        id: 'enterprise-dashboard',
+        id: 'business-software-builder',
         name: {
-          es: 'Dashboard Empresarial',
-          en: 'Enterprise Dashboard'
+          es: 'Constructor de Software Empresarial',
+          en: 'Business Software Builder'
         },
         description: {
-          es: 'Dashboard interactivo con métricas en tiempo real',
-          en: 'Interactive dashboard with real-time metrics'
+          es: 'Construye tu sistema empresarial seleccionando los módulos que necesitas',
+          en: 'Build your business system by selecting the modules you need'
         },
-        component: 'DashboardDemo',
-        enabled: false,
-        complexity: 'advanced',
+        component: 'BusinessSoftwareDemo',
+        enabled: true,
+        complexity: 'simple',
         version: '1.0'
       }
     ],
@@ -602,19 +602,19 @@ export const solutions: Solution[] = [
     },
     demos: [
       {
-        id: 'saas-mvp',
+        id: 'mvp-builder',
         name: {
-          es: 'MVP SaaS',
-          en: 'SaaS MVP'
+          es: 'Constructor de MVP',
+          en: 'MVP Builder'
         },
         description: {
-          es: 'Prototipo funcional de producto SaaS',
-          en: 'Functional SaaS product prototype'
+          es: 'Transforma tu idea en un MVP funcional',
+          en: 'Transform your idea into a functional MVP'
         },
-        component: 'MvpDemo',
-        enabled: false,
+        component: 'MvpBuilderDemo',
+        enabled: true,
         featured: true,
-        complexity: 'intermediate',
+        complexity: 'simple',
         version: '1.0'
       }
     ],

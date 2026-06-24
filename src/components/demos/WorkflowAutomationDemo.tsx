@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { demoTracking } from '../../services/demoTracking';
 import { RotateCcw, Sparkles, ArrowRight, AlertTriangle, PartyPopper } from 'lucide-react';
 import { workflowScenarios } from './data/workflowData';
 import WorkflowSelector from './workflow/WorkflowSelector';
@@ -21,6 +22,10 @@ export default function WorkflowAutomationDemo({ language = 'es' }: WorkflowAuto
   const [isTransforming, setIsTransforming] = useState(false);
 
   const selectedScenario = workflowScenarios.find(s => s.id === selectedScenarioId);
+
+  useEffect(() => {
+    demoTracking.track('automation');
+  }, []);
 
   const handleScenarioSelect = (id: string) => {
     setSelectedScenarioId(id);
