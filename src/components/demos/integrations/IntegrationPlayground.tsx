@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { integrations } from './data/integrationsData';
 import IntegrationCarousel from './IntegrationCarousel';
 import IntegrationBenefits from './IntegrationBenefits';
+import { demoTracking } from '../../../services/demoTracking';
 
 interface IntegrationPlaygroundProps {
   language?: 'es' | 'en';
@@ -10,6 +11,10 @@ interface IntegrationPlaygroundProps {
 
 export default function IntegrationPlayground({ language = 'es' }: IntegrationPlaygroundProps) {
   const [selectedIntegrationId, setSelectedIntegrationId] = useState<string | null>(null);
+
+  useEffect(() => {
+    demoTracking.track('integrations');
+  }, []);
 
   const handleSelectIntegration = (id: string) => {
     setSelectedIntegrationId(id);

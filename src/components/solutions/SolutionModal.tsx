@@ -7,6 +7,8 @@ import AiAssistantDemo from '../demos/AiAssistantDemo';
 import WorkflowAutomationDemo from '../demos/WorkflowAutomationDemo';
 import IntegrationPlayground from '../demos/integrations/IntegrationPlayground';
 import WebSolutionShowcase from '../demos/web/WebSolutionShowcase';
+import BusinessSoftwareDemo from '../demos/business/BusinessSoftwareDemo';
+import MvpBuilderDemo from '../demos/mvp/MvpBuilderDemo';
 
 interface SolutionModalProps {
   solution: Solution | null;
@@ -152,6 +154,8 @@ export default function SolutionModal({ solution, isOpen, onClose, language }: S
                               {demo.component === 'WorkflowAutomationDemo' && <WorkflowAutomationDemo language={language} />}
                               {demo.component === 'IntegrationPlayground' && <IntegrationPlayground language={language} />}
                               {demo.component === 'WebSolutionShowcase' && <WebSolutionShowcase language={language} />}
+                              {demo.component === 'BusinessSoftwareDemo' && <BusinessSoftwareDemo language={language} />}
+                              {demo.component === 'MvpBuilderDemo' && <MvpBuilderDemo language={language} />}
                               {/* Futuras demos se agregarán aquí */}
                             </div>
                           ) : (

@@ -7,6 +7,7 @@ import EcommerceMockup from './mockups/EcommerceMockup';
 import DashboardMockup from './mockups/DashboardMockup';
 import PortalMockup from './mockups/PortalMockup';
 import SaaSMockup from './mockups/SaaSMockup';
+import { demoTracking } from '../../../services/demoTracking';
 
 interface WebSolutionShowcaseProps {
   language?: 'es' | 'en';
@@ -26,6 +27,11 @@ export default function WebSolutionShowcase({ language = 'es' }: WebSolutionShow
     'portal': <PortalMockup />,
     'saas': <SaaSMockup />
   };
+
+  // Track demo visit
+  useEffect(() => {
+    demoTracking.track('web');
+  }, []);
 
   // Auto-rotation logic
   useEffect(() => {
