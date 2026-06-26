@@ -16,9 +16,10 @@ const description = "La página que buscas no existe.";
   <title>{title}</title>
   <meta name="description" content={description} />
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
+  <!-- Favicon adaptativo según tema del sistema -->
+  <link rel="icon" type="image/png" href="/favicon-dark.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" href="/favicon.png" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" href="/favicon-dark.png" />
   
   <ViewTransitions />
 </head>

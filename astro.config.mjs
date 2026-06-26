@@ -2,6 +2,9 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +18,7 @@ export default defineConfig({
     define: {
       'import.meta.env.SUPABASE_URL': JSON.stringify(process.env.SUPABASE_URL),
       'import.meta.env.SUPABASE_ANON_KEY': JSON.stringify(process.env.SUPABASE_ANON_KEY),
+      'import.meta.env.PUBLIC_CRM_PASSWORD': JSON.stringify(process.env.PUBLIC_CRM_PASSWORD),
     },
     ssr: {
       noExternal: ["framer-motion", "gsap"],

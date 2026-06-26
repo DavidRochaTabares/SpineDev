@@ -1,0 +1,21 @@
+---
+import '../../styles/global.css';
+import CRMDashboard from '../../components/crm/CRMDashboard';
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpineDev CRM - Dashboard</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <!-- Favicon adaptativo según tema del sistema -->
+  <link rel="icon" type="image/png" href="/favicon-dark.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" href="/favicon.png" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" href="/favicon-dark.png" />
+</head>
+<body>
+  <CRMDashboard client:load language="es" />
+</body>
+</html>
