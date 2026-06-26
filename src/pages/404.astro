@@ -1,0 +1,119 @@
+---
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+
+const title = "404 - Página no encontrada | SpineDev";
+const description = "La página que buscas no existe.";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  
+  <ViewTransitions />
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="max-w-2xl w-full text-center">
+      <!-- Animación de fondo -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-400/20 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-400/20 rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
+      </div>
+
+      <div class="relative z-10">
+        <!-- Logo -->
+        <div class="mb-8 flex justify-center">
+          <img src="/spinedev logo horizontal azul.png" alt="SpineDev" class="h-12 w-auto dark:hidden" />
+          <img src="/Spinedev logo horizontal blanco.png" alt="SpineDev" class="h-12 w-auto hidden dark:block" />
+        </div>
+
+        <!-- 404 Number -->
+        <div class="mb-8">
+          <h1 class="text-9xl font-display font-bold text-primary-600 dark:text-primary-400 mb-4">
+            404
+          </h1>
+          <div class="w-24 h-1 bg-secondary-600 dark:bg-secondary-400 mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Message -->
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">
+          Página no encontrada
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-md mx-auto">
+          Lo sentimos, la página que buscas no existe o ha sido movida.
+        </p>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="/"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-bold text-lg"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Volver al inicio
+          </a>
+          
+          <a
+            href="/#contacto"
+            class="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 hover:border-primary-600 dark:hover:border-primary-400 rounded-xl hover:shadow-lg transition-all duration-300 font-bold text-lg"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            Contactar
+          </a>
+        </div>
+
+        <!-- Quick links -->
+        <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+            Enlaces útiles:
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center text-sm">
+            <a href="/#soluciones" class="text-primary-600 dark:text-primary-400 hover:underline">
+              Soluciones
+            </a>
+            <a href="/#tecnologias" class="text-primary-600 dark:text-primary-400 hover:underline">
+              Tecnologías
+            </a>
+            <a href="/#sobre-spinedev" class="text-primary-600 dark:text-primary-400 hover:underline">
+              Nosotros
+            </a>
+            <a href="/#faq" class="text-primary-600 dark:text-primary-400 hover:underline">
+              FAQ
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+  </style>
+</body>
+</html>
