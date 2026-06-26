@@ -45,7 +45,7 @@ export interface FAQ {
   id: string;
   question: BilingualContent;
   answer: BilingualContent;
-  category: 'pricing' | 'process' | 'technical' | 'support';
+  category: 'discovery' | 'services' | 'process' | 'technical' | 'support';
 }
 
 export interface CaseStudy {

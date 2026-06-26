@@ -130,8 +130,8 @@ export default function SolutionsSection() {
               </h3>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
                 {language === 'es' 
-                  ? 'Cada proyecto es único. Cuéntanos tu idea y crearemos la solución perfecta para ti.' 
-                  : 'Every project is unique. Tell us your idea and we\'ll create the perfect solution for you.'}
+                  ? 'Cada proyecto es único. Cuéntanos tu idea y crearemos la solución que necesitas.' 
+                  : 'Every project is unique. Tell us your idea and we\'ll create the solution you need.'}
               </p>
               <a
                 href="#contacto"

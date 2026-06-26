@@ -2,99 +2,123 @@ import type { FAQ } from './types';
 
 export const faqs: FAQ[] = [
   {
-    id: 'pricing',
-    category: 'pricing',
+    id: 'which-solution',
+    category: 'discovery',
     question: {
-      es: '¿Cuánto cuesta desarrollar un proyecto?',
-      en: 'How much does it cost to develop a project?'
+      es: '¿Cómo sé cuál solución necesita mi empresa?',
+      en: 'How do I know which solution my company needs?'
     },
     answer: {
-      es: 'El costo varía según la complejidad y alcance del proyecto. Después de la consultoría inicial, entregamos un presupuesto fijo detallado. Los proyectos típicamente van desde $5,000 USD para MVPs hasta $50,000+ para soluciones empresariales completas.',
-      en: 'The cost varies depending on the complexity and scope of the project. After the initial consultation, we deliver a detailed fixed budget. Projects typically range from $5,000 USD for MVPs to $50,000+ for complete enterprise solutions.'
+      es: 'No necesitas saberlo antes de contactarnos. Analizamos tu proyecto y recomendamos la alternativa más adecuada según tus objetivos. Puede ser una automatización, una integración, un software empresarial, un MVP, una plataforma web o una combinación de varias soluciones.',
+      en: 'You don\'t need to know before contacting us. We analyze your project and recommend the most suitable alternative based on your goals. It could be an automation, an integration, enterprise software, an MVP, a web platform, or a combination of several solutions.'
     }
   },
   {
-    id: 'timeline',
+    id: 'project-types',
+    category: 'services',
+    question: {
+      es: '¿Qué tipo de proyectos desarrolla SpineDev?',
+      en: 'What type of projects does SpineDev develop?'
+    },
+    answer: {
+      es: 'Desarrollamos soluciones digitales personalizadas para empresas, startups y nuevos productos digitales. Desde automatizaciones que optimizan procesos internos hasta plataformas web completas y software empresarial a medida.',
+      en: 'We develop custom digital solutions for companies, startups, and new digital products. From automations that optimize internal processes to complete web platforms and custom enterprise software.'
+    }
+  },
+  {
+    id: 'custom-software',
+    category: 'services',
+    question: {
+      es: '¿Desarrollan software completamente personalizado?',
+      en: 'Do you develop completely custom software?'
+    },
+    answer: {
+      es: 'Sí. Cada proyecto se diseña según las necesidades específicas del cliente. No trabajamos con plantillas para soluciones a medida.',
+      en: 'Yes. Each project is designed according to the client\'s specific needs. We don\'t work with templates for custom solutions.'
+    }
+  },
+  {
+    id: 'existing-systems',
+    category: 'services',
+    question: {
+      es: '¿Pueden mejorar un sistema existente?',
+      en: 'Can you improve an existing system?'
+    },
+    answer: {
+      es: 'Sí. No siempre es necesario comenzar desde cero. Podemos ampliar, modernizar o integrar nuevas funcionalidades sobre software existente cuando el proyecto lo permita.',
+      en: 'Yes. It\'s not always necessary to start from scratch. We can expand, modernize, or integrate new features into existing software when the project allows it.'
+    }
+  },
+  {
+    id: 'integrations',
+    category: 'services',
+    question: {
+      es: '¿Pueden integrar mi software con otras plataformas?',
+      en: 'Can you integrate my software with other platforms?'
+    },
+    answer: {
+      es: 'Sí. Podemos integrar APIs y servicios externos como pasarelas de pago, inteligencia artificial, sistemas de comunicación, calendarios, CRMs y muchas otras herramientas según las necesidades del proyecto.',
+      en: 'Yes. We can integrate APIs and external services such as payment gateways, artificial intelligence, communication systems, calendars, CRMs, and many other tools based on project needs.'
+    }
+  },
+  {
+    id: 'work-process',
     category: 'process',
     question: {
-      es: '¿Cuánto tiempo toma desarrollar un proyecto?',
-      en: 'How long does it take to develop a project?'
+      es: '¿Cómo es el proceso de trabajo?',
+      en: 'What is the work process like?'
     },
     answer: {
-      es: 'Un MVP funcional puede estar listo en 4-8 semanas. Proyectos más complejos pueden tomar 3-6 meses. Trabajamos con sprints semanales, por lo que verás progreso funcional cada semana, no al final del proyecto.',
-      en: 'A functional MVP can be ready in 4-8 weeks. More complex projects can take 3-6 months. We work with weekly sprints, so you\'ll see functional progress every week, not at the end of the project.'
+      es: 'Comenzamos con descubrimiento para entender tus necesidades. Luego planificamos la solución, diseñamos la experiencia, desarrollamos el producto, realizamos pruebas exhaustivas y finalmente entregamos con acompañamiento para asegurar una implementación exitosa.',
+      en: 'We start with discovery to understand your needs. Then we plan the solution, design the experience, develop the product, perform thorough testing, and finally deliver with support to ensure successful implementation.'
     }
   },
   {
-    id: 'fixed-vs-hourly',
-    category: 'pricing',
-    question: {
-      es: '¿Trabajan con presupuestos fijos o por horas?',
-      en: 'Do you work with fixed budgets or hourly rates?'
-    },
-    answer: {
-      es: 'Preferimos presupuestos fijos para proyectos con alcance definido. Esto te da certeza de costos y evita sorpresas. Para proyectos de soporte continuo o alcance variable, podemos trabajar con retainers mensuales.',
-      en: 'We prefer fixed budgets for projects with defined scope. This gives you cost certainty and avoids surprises. For ongoing support projects or variable scope, we can work with monthly retainers.'
-    }
-  },
-  {
-    id: 'post-launch-support',
-    category: 'support',
-    question: {
-      es: '¿Ofrecen soporte después del lanzamiento?',
-      en: 'Do you offer support after launch?'
-    },
-    answer: {
-      es: 'Sí. Incluimos 30 días de soporte post-lanzamiento para resolver bugs y hacer ajustes menores. Después, ofrecemos planes de mantenimiento mensual que incluyen actualizaciones, monitoreo y soporte técnico continuo.',
-      en: 'Yes. We include 30 days of post-launch support to fix bugs and make minor adjustments. After that, we offer monthly maintenance plans that include updates, monitoring and ongoing technical support.'
-    }
-  },
-  {
-    id: 'progress-visibility',
+    id: 'client-participation',
     category: 'process',
     question: {
-      es: '¿Puedo ver el progreso durante el desarrollo?',
-      en: 'Can I see progress during development?'
+      es: '¿Puedo participar durante el desarrollo?',
+      en: 'Can I participate during development?'
     },
     answer: {
-      es: 'Absolutamente. Trabajamos con sprints semanales y cada viernes hacemos una demo de las funcionalidades completadas. Tendrás acceso a un ambiente de staging donde podrás probar el producto en cualquier momento.',
-      en: 'Absolutely. We work with weekly sprints and every Friday we do a demo of completed features. You\'ll have access to a staging environment where you can test the product at any time.'
+      es: 'Sí. La comunicación constante y el seguimiento del proyecto forman parte del proceso. Queremos que tengas visibilidad del avance y puedas aportar feedback durante el desarrollo.',
+      en: 'Yes. Constant communication and project tracking are part of the process. We want you to have visibility of progress and be able to provide feedback during development.'
     }
   },
   {
-    id: 'changes-after-delivery',
+    id: 'after-delivery',
     category: 'support',
     question: {
-      es: '¿Qué pasa si necesito cambios después de la entrega?',
-      en: 'What if I need changes after delivery?'
+      es: '¿Qué sucede cuando el proyecto finaliza?',
+      en: 'What happens when the project ends?'
     },
     answer: {
-      es: 'Los cambios menores y correcciones de bugs están cubiertos en el período de soporte inicial. Para nuevas funcionalidades o cambios mayores, podemos crear una propuesta adicional o incluirlos en un plan de mantenimiento mensual.',
-      en: 'Minor changes and bug fixes are covered in the initial support period. For new features or major changes, we can create an additional proposal or include them in a monthly maintenance plan.'
+      es: 'El software puede seguir evolucionando. Podemos continuar apoyando con mantenimiento, mejoras o nuevas funcionalidades según las necesidades del negocio.',
+      en: 'The software can continue to evolve. We can continue supporting with maintenance, improvements, or new features based on business needs.'
     }
   },
   {
     id: 'international-clients',
     category: 'process',
     question: {
-      es: '¿Trabajan con empresas fuera de Colombia?',
-      en: 'Do you work with companies outside Colombia?'
+      es: '¿Trabajan con clientes internacionales?',
+      en: 'Do you work with international clients?'
     },
     answer: {
-      es: 'Sí, trabajamos con clientes en toda Latinoamérica, Estados Unidos y Europa. Todas nuestras comunicaciones pueden ser en español o inglés, y nos adaptamos a diferentes zonas horarias para reuniones.',
-      en: 'Yes, we work with clients throughout Latin America, the United States and Europe. All our communications can be in Spanish or English, and we adapt to different time zones for meetings.'
+      es: 'Sí. Trabajamos de forma remota y adaptamos la comunicación al idioma y zona horaria del cliente cuando es necesario.',
+      en: 'Yes. We work remotely and adapt communication to the client\'s language and time zone when necessary.'
     }
   },
   {
-    id: 'initial-consultation',
-    category: 'process',
+    id: 'technologies',
+    category: 'technical',
     question: {
-      es: '¿Qué incluye la consultoría inicial?',
-      en: 'What does the initial consultation include?'
+      es: '¿Qué tecnologías utilizan?',
+      en: 'What technologies do you use?'
     },
     answer: {
-      es: 'Una videollamada de 30-45 minutos donde analizamos tu proceso actual, identificamos oportunidades de mejora y discutimos posibles soluciones. Es completamente gratis y sin compromiso. Al final, tendrás una idea clara de cómo podemos ayudarte.',
-      en: 'A 30-45 minute video call where we analyze your current process, identify improvement opportunities and discuss possible solutions. It\'s completely free and without commitment. At the end, you\'ll have a clear idea of how we can help you.'
+      es: 'Seleccionamos las tecnologías según las necesidades de cada proyecto. No vendemos una tecnología específica, vendemos la mejor solución para cada caso.',
+      en: 'We select technologies based on each project\'s needs. We don\'t sell a specific technology, we sell the best solution for each case.'
     }
   }
 ];
