@@ -3,12 +3,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
 
 export default function HeroSpineDev() {
-  const { t } = useTranslation();
-  const whatsappNumber = "573058260893";
-  const whatsappMessage = encodeURIComponent(
-    "Hola, me gustaría agendar una consultoría gratuita para mi proyecto."
-  );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  const { t, language } = useTranslation();
 
   return (
     <section
@@ -83,12 +78,10 @@ export default function HeroSpineDev() {
             className="flex justify-center"
           >
             <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#soluciones"
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-bold text-lg"
             >
-              <span>{t.spinedev.hero.ctaPrimary}</span>
+              <span>{language === 'es' ? 'Explorar Soluciones' : 'Explore Solutions'}</span>
               <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
             </a>
           </motion.div>
