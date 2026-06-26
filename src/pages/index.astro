@@ -1,4 +1,107 @@
 ---
-// Redirección automática a SpineDev (página principal)
-return Astro.redirect('/spinedev', 301);
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import NavigationSpineDev from '../components/NavigationSpineDev.astro';
+import FooterSpineDev from '../components/FooterSpineDev.astro';
+import ScrollToTop from '../components/ScrollToTop';
+import ChatWidget from '../components/chat/ChatWidget';
+import PWAInstallPrompt from '../components/PWAInstallPrompt';
+import LanguageModal from '../components/LanguageModal';
+import HeroSpineDev from '../components/spinedev/HeroSpineDev';
+import WhySpineDev from '../components/spinedev/WhySpineDev';
+import TechnologiesSpineDev from '../components/spinedev/TechnologiesSpineDev';
+import AboutSpineDev from '../components/spinedev/AboutSpineDev';
+import FAQSection from '../components/spinedev/FAQSection';
+import CTAFinal from '../components/spinedev/CTAFinal';
+import SolutionsSection from '../components/solutions/SolutionsSection';
+
+const title = "SpineDev - Desarrollo de Software, Automatización e IA";
+const description = "Agencia boutique especializada en desarrollo de software a medida, automatizaciones inteligentes e integración de IA para empresas que buscan eficiencia y crecimiento.";
+const keywords = "desarrollo de software, automatización, inteligencia artificial, desarrollo web, MVPs, SaaS, integraciones API, SpineDev";
 ---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content={Astro.generator} />
+  
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="SpineDev" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <ViewTransitions />
+</head>
+<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-white transition-colors duration-300">
+  <LanguageModal client:load />
+  <NavigationSpineDev />
+  <main>
+    <HeroSpineDev client:load />
+    <SolutionsSection client:idle />
+    <WhySpineDev client:visible />
+    <TechnologiesSpineDev client:visible />
+    <AboutSpineDev client:visible />
+    <FAQSection client:visible />
+    <CTAFinal client:visible />
+  </main>
+  <FooterSpineDev />
+  <ChatWidget client:load language="es" />
+  <PWAInstallPrompt client:load />
+  <ScrollToTop client:load />
+</body>
+</html>
+
+<script>
+  if (typeof window !== 'undefined') {
+    // Función para determinar si es de noche basándose en la hora local
+    function isNightTime() {
+      const hour = new Date().getHours();
+      // Considera noche entre las 19:00 (7 PM) y las 6:00 (6 AM)
+      return hour >= 19 || hour < 6;
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Si el usuario ya tiene una preferencia guardada, usarla
+    // Si no, determinar automáticamente según la hora del día
+    if (savedTheme === 'dark' || (!savedTheme && isNightTime())) {
+      document.documentElement.classList.add('dark');
+    }
+
+    // Registrar Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('Service Worker registrado:', registration);
+            
+            // Verificar actualizaciones cada hora
+            setInterval(() => {
+              registration.update();
+            }, 60 * 60 * 1000);
+          })
+          .catch((error) => {
+            console.error('Error al registrar Service Worker:', error);
+          });
+      });
+    }
+  }
+</script>
