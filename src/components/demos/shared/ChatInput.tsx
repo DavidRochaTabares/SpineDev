@@ -38,8 +38,7 @@ export default function ChatInput({
         onKeyPress={handleKeyPress}
         disabled={disabled}
         placeholder={placeholder}
-        className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-gray-50 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 focus:border-primary-500 dark:focus:border-primary-500 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-colors text-sm sm:text-base"
-        autoFocus
+        className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-gray-50 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 focus:border-primary-500 dark:focus:border-primary-500 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-colors text-base"
       />
       <motion.button
         whileHover={{ scale: 1.05 }}

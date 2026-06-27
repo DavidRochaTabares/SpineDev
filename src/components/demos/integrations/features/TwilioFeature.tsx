@@ -106,12 +106,12 @@ export default function TwilioFeature({ language }: TwilioFeatureProps) {
           <input
             type="tel"
             placeholder="+1 (555) 123-4567"
-            className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
+            className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-base"
             disabled
           />
           <textarea
             placeholder={language === 'es' ? 'Tu mensaje aquí...' : 'Your message here...'}
-            className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm resize-none"
+            className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-base resize-none"
             rows={3}
             disabled
           />

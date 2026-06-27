@@ -126,18 +126,18 @@ export default function GoogleCalendarFeature({ language }: GoogleCalendarFeatur
           <input
             type="text"
             placeholder={language === 'es' ? 'Título de la reunión' : 'Meeting title'}
-            className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
+            className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-base"
             disabled
           />
           <div className="grid grid-cols-2 gap-3">
             <input
               type="date"
-              className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
+              className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-base"
               disabled
             />
             <input
               type="time"
-              className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
+              className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-base"
               disabled
             />
           </div>

@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { User, Mail, Phone } from 'lucide-react';
 import type { LeadCaptureData, ConversationContext } from '../../types/lead.types';
 
-const SUPABASE_URL = 'https://kexkabqutkctqsizquwt.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_LKB1-Tb1KOGaJV1gA09hUQ_nHQDvIRu';
+const SUPABASE_URL = import.meta.env.SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.SUPABASE_ANON_KEY;
 
 interface LeadCaptureFormProps {
   language: 'es' | 'en';
@@ -101,7 +101,7 @@ export default function LeadCaptureForm({ language, context, onSubmit, onCancel 
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder={language === 'es' ? 'Tu nombre' : 'Your name'}
-              className="w-full pl-10 pr-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm text-gray-900 dark:text-white"
+              className="w-full pl-10 pr-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-base text-gray-900 dark:text-white"
             />
           </div>
           {errors.name && <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.name}</p>}
@@ -116,7 +116,7 @@ export default function LeadCaptureForm({ language, context, onSubmit, onCancel 
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder={language === 'es' ? 'Tu email' : 'Your email'}
-              className="w-full pl-10 pr-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm text-gray-900 dark:text-white"
+              className="w-full pl-10 pr-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-base text-gray-900 dark:text-white"
             />
           </div>
           {errors.email && <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.email}</p>}
@@ -131,7 +131,7 @@ export default function LeadCaptureForm({ language, context, onSubmit, onCancel 
               value={formData.whatsapp}
               onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
               placeholder={language === 'es' ? 'WhatsApp (+57...)' : 'WhatsApp (+57...)'}
-              className="w-full pl-10 pr-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm text-gray-900 dark:text-white"
+              className="w-full pl-10 pr-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-base text-gray-900 dark:text-white"
             />
           </div>
           {errors.whatsapp && <p className="text-xs text-red-600 dark:text-red-400 mt-1">{errors.whatsapp}</p>}

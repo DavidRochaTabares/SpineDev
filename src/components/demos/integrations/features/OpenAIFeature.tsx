@@ -146,7 +146,7 @@ export default function OpenAIFeature({ language }: OpenAIFeatureProps) {
             <input
               type="text"
               placeholder={language === 'es' ? 'Escribe tu pregunta...' : 'Type your question...'}
-              className="flex-1 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="flex-1 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-emerald-500"
               disabled
             />
             <button className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg flex items-center gap-2 text-sm font-medium transition-colors">

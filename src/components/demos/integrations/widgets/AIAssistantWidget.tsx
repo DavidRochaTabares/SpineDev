@@ -62,7 +62,7 @@ export default function AIAssistantWidget({ language }: AIAssistantWidgetProps) 
           <input
             type="text"
             placeholder={language === 'es' ? 'Escribe tu pregunta...' : 'Type your question...'}
-            className="flex-1 px-3 py-2 bg-white dark:bg-gray-800 border border-emerald-200 dark:border-emerald-800 rounded-lg text-sm"
+            className="flex-1 px-3 py-2 bg-white dark:bg-gray-800 border border-emerald-200 dark:border-emerald-800 rounded-lg text-base"
             disabled
           />
           <button className="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg">
