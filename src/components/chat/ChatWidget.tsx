@@ -328,7 +328,7 @@ export default function ChatWidget({ language: initialLanguage = 'es' }: ChatWid
                     onChange={(e) => setInput(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                     placeholder={language === 'es' ? 'Escribe tu mensaje...' : 'Type your message...'}
-                    className="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm text-gray-900 dark:text-white"
+                    className="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 text-base text-gray-900 dark:text-white"
                     disabled={isLoading}
                   />
                   <button

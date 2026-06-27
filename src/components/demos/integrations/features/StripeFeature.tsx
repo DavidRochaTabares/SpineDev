@@ -36,12 +36,12 @@ export default function StripeFeature({ language }: StripeFeatureProps) {
             <h4 className="text-xl font-bold">
               {language === 'es' ? 'Pagos' : 'Payments'}
             </h4>
-            <p className="text-sm text-purple-100">
+            <p className="text-base text-purple-100">
               {language === 'es' ? 'Capacidad desbloqueada' : 'Capability unlocked'}
             </p>
           </div>
         </div>
-        <p className="text-sm text-purple-50">
+        <p className="text-base text-purple-50">
           {language === 'es' 
             ? 'Tu plataforma ahora puede procesar pagos de forma segura'
             : 'Your platform can now process payments securely'}
@@ -71,7 +71,7 @@ export default function StripeFeature({ language }: StripeFeatureProps) {
               language === 'es' ? 'Soporte prioritario' : 'Priority support',
               language === 'es' ? 'Integraciones avanzadas' : 'Advanced integrations'
             ].map((feature, index) => (
-              <li key={index} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+              <li key={index} className="flex items-center gap-2 text-base text-gray-700 dark:text-gray-300">
                 <Check className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                 {feature}
               </li>
@@ -81,14 +81,14 @@ export default function StripeFeature({ language }: StripeFeatureProps) {
 
         <div className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-2">
               {language === 'es' ? 'Número de tarjeta' : 'Card number'}
             </label>
             <div className="relative">
               <input
                 type="text"
                 placeholder="4242 4242 4242 4242"
-                className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm pr-10"
+                className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-base pr-10"
                 disabled
               />
               <CreditCard className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -97,24 +97,24 @@ export default function StripeFeature({ language }: StripeFeatureProps) {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-2">
                 {language === 'es' ? 'Vencimiento' : 'Expiry'}
               </label>
               <input
                 type="text"
                 placeholder="MM/YY"
-                className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
+                className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-base"
                 disabled
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-base font-medium text-gray-700 dark:text-gray-300 mb-2">
                 CVC
               </label>
               <input
                 type="text"
                 placeholder="123"
-                className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
+                className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-base"
                 disabled
               />
             </div>
@@ -154,7 +154,7 @@ export default function StripeFeature({ language }: StripeFeatureProps) {
               className="flex items-center gap-2 bg-white dark:bg-gray-800 rounded-lg p-3"
             >
               <div className="w-2 h-2 bg-purple-500 rounded-full" />
-              <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
+              <span className="text-base font-medium text-gray-800 dark:text-gray-200">
                 {benefit}
               </span>
             </motion.div>

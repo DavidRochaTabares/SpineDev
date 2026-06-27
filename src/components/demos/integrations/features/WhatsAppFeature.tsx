@@ -176,7 +176,7 @@ export default function WhatsAppFeature({ language }: WhatsAppFeatureProps) {
             <input
               type="text"
               placeholder={language === 'es' ? 'Escribe un mensaje...' : 'Type a message...'}
-              className="flex-1 px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-sm"
+              className="flex-1 px-4 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-lg text-base"
               disabled
             />
             <button className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg flex items-center gap-2 transition-colors">
