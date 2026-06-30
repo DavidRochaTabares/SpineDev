@@ -92,11 +92,12 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, type: 'spring', damping: 25 }}
-              className="relative w-full max-w-6xl h-[100vh] sm:h-[95vh] bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden pointer-events-auto"
+              className="relative w-full max-w-6xl h-[100vh] sm:h-[95vh] bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden pointer-events-auto pt-safe"
               onClick={(e) => e.stopPropagation()}
+              style={{ paddingTop: 'env(safe-area-inset-top)' }}
             >
               {/* Header con botón de cerrar - Mejorado para móvil */}
-              <div className="absolute top-0 left-0 right-0 z-10 flex justify-between items-center p-3 sm:p-4 bg-gradient-to-b from-white/95 to-transparent dark:from-gray-900/95 backdrop-blur-sm">
+              <div className="sticky top-0 left-0 right-0 z-10 flex justify-between items-center p-3 sm:p-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
                 <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 sm:hidden">
                   Agendar reunión
                 </span>
@@ -110,7 +111,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               </div>
 
               {/* Calendly Embed */}
-              <div className="w-full h-full relative">
+              <div className="w-full h-[calc(100%-60px)] relative">
                 {/* Loading State */}
                 {isLoading && (
                   <div className="absolute inset-0 flex items-center justify-center bg-white dark:bg-gray-900 z-10">
