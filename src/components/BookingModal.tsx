@@ -86,23 +86,26 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
           />
 
           {/* Modal */}
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 pointer-events-none">
+          <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center p-0 sm:p-4 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, type: 'spring', damping: 25 }}
-              className="relative w-full max-w-6xl h-[95vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden pointer-events-auto"
+              className="relative w-full max-w-6xl h-[100vh] sm:h-[95vh] bg-white dark:bg-gray-900 rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden pointer-events-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header con botón de cerrar */}
-              <div className="absolute top-0 right-0 z-10 p-3 sm:p-4">
+              {/* Header con botón de cerrar - Mejorado para móvil */}
+              <div className="absolute top-0 left-0 right-0 z-10 flex justify-between items-center p-3 sm:p-4 bg-gradient-to-b from-white/95 to-transparent dark:from-gray-900/95 backdrop-blur-sm">
+                <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 sm:hidden">
+                  Agendar reunión
+                </span>
                 <button
                   onClick={onClose}
-                  className="p-2 bg-white/90 dark:bg-gray-800/90 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors shadow-lg backdrop-blur-sm"
+                  className="ml-auto p-2.5 bg-gray-900/10 dark:bg-white/10 hover:bg-gray-900/20 dark:hover:bg-white/20 rounded-full transition-colors"
                   aria-label="Cerrar"
                 >
-                  <X className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                  <X className="w-5 h-5 text-gray-900 dark:text-white font-bold" strokeWidth={2.5} />
                 </button>
               </div>
 
