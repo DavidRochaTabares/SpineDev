@@ -1,22 +1,18 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
-import { MessageCircle, CheckCircle } from "lucide-react";
+import { Calendar } from "lucide-react";
+import BookingModal from "../BookingModal";
 
 export default function CTAFinal() {
   const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const whatsappNumber = "573058260893";
-  const whatsappMessage = encodeURIComponent(
-    "¡Hola! Me gustaría agendar una consultoría gratuita para mi proyecto."
-  );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
-    <section id="contacto" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-gray-950">
+    <section id="contacto" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={ref}
@@ -26,92 +22,64 @@ export default function CTAFinal() {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center justify-center w-full"
+            className="text-center max-w-4xl mx-auto"
           >
-            <div className="relative w-full max-w-4xl">
-              <div className="absolute inset-0 bg-primary-500 rounded-2xl blur-xl opacity-30"></div>
+            {/* Título */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-gray-900 dark:text-white mb-6"
+            >
+              {t.spinedev.booking.title}
+            </motion.h2>
 
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-                className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 lg:p-12 shadow-2xl text-center"
-              >
-                <div className="flex items-center justify-center gap-4 mb-3 sm:mb-4">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={isInView ? { scale: 1 } : { scale: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4, type: "spring" }}
-                    className="flex-shrink-0 p-3 sm:p-4 bg-primary-600 dark:bg-primary-500 rounded-full shadow-lg"
-                  >
-                    <MessageCircle className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                  </motion.div>
+            {/* Descripción */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-8"
+            >
+              {t.spinedev.booking.description}
+            </motion.p>
 
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-left">
-                    {t.spinedev.cta.title}{" "}
-                    <span className="text-secondary-600 dark:text-secondary-400">
-                      {t.spinedev.cta.titleHighlight}
-                    </span>
-                  </h2>
+            {/* Puntos clave */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="grid sm:grid-cols-3 gap-4 mb-10 max-w-2xl mx-auto"
+            >
+              {t.spinedev.booking.benefits.map((benefit: string, index: number) => (
+                <div key={index} className="flex items-start gap-2 text-left">
+                  <div className="flex-shrink-0 w-5 h-5 rounded-full bg-secondary-100 dark:bg-secondary-900/30 flex items-center justify-center mt-0.5">
+                    <div className="w-2 h-2 rounded-full bg-secondary-600 dark:bg-secondary-400"></div>
+                  </div>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">{benefit}</span>
                 </div>
+              ))}
+            </motion.div>
 
-                <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8">
-                  {t.spinedev.cta.subtitle}
-                </p>
-
-                <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 max-w-2xl mx-auto mb-6 sm:mb-8">
-                  <div className="flex items-start gap-3 text-left">
-                    <CheckCircle className="w-5 h-5 text-secondary-600 dark:text-secondary-400 flex-shrink-0 mt-1" />
-                    <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                      {t.spinedev.cta.benefit1}
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3 text-left">
-                    <CheckCircle className="w-5 h-5 text-secondary-600 dark:text-secondary-400 flex-shrink-0 mt-1" />
-                    <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                      {t.spinedev.cta.benefit2}
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3 text-left">
-                    <CheckCircle className="w-5 h-5 text-secondary-600 dark:text-secondary-400 flex-shrink-0 mt-1" />
-                    <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                      {t.spinedev.cta.benefit3}
-                    </span>
-                  </div>
-                  <div className="flex items-start gap-3 text-left">
-                    <CheckCircle className="w-5 h-5 text-secondary-600 dark:text-secondary-400 flex-shrink-0 mt-1" />
-                    <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                      {t.spinedev.cta.benefit4}
-                    </span>
-                  </div>
-                </div>
-
-                <motion.a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-3 px-10 py-5 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white rounded-xl hover:shadow-2xl transition-all duration-300 font-bold text-lg group"
-                >
-                  <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
-                  {t.spinedev.cta.button}
-                </motion.a>
-
-                <p className="mt-6 text-sm text-gray-500 dark:text-gray-400">
-                  {t.spinedev.cta.whatsapp}
-                </p>
-
-                <div className="mt-8 inline-flex items-center gap-2 px-4 py-2 bg-primary-50 dark:bg-primary-900/20 rounded-full">
-                  <div className="w-2 h-2 bg-primary-600 dark:bg-primary-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">
-                    {t.spinedev.cta.free}
-                  </span>
-                </div>
-              </motion.div>
-            </div>
+            {/* Botón */}
+            <motion.button
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsBookingOpen(true)}
+              className="inline-flex items-center gap-3 px-10 py-5 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 font-bold text-lg group"
+            >
+              <Calendar className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+              {t.spinedev.booking.button}
+            </motion.button>
           </motion.div>
         </div>
       </div>
+
+      {/* Booking Modal */}
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </section>
   );
 }

@@ -132,6 +132,16 @@ export const translations = {
         button: "Agendar Ahora",
         whatsapp: "O escríbenos por WhatsApp: +57 305 826 0893",
         free: "Primera consulta 100% gratis"
+      },
+      booking: {
+        title: "Agenda una consulta gratuita",
+        description: "Reserva una reunión de 30 minutos para conversar sobre tu proyecto y descubrir cómo podemos ayudarte.",
+        button: "Agendar cita",
+        benefits: [
+          "30 minutos de consultoría",
+          "Sin compromiso",
+          "100% gratis"
+        ]
       }
     }
   },
@@ -268,6 +278,16 @@ export const translations = {
         button: "Schedule Now",
         whatsapp: "Or message us on WhatsApp: +57 305 826 0893",
         free: "First consultation 100% free"
+      },
+      booking: {
+        title: "Book a Free Consultation",
+        description: "Schedule a 30-minute meeting to discuss your project and explore how SpineDev can help.",
+        button: "Book a Meeting",
+        benefits: [
+          "30-minute consultation",
+          "No commitment",
+          "100% free"
+        ]
       }
     }
   }

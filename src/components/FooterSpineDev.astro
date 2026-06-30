@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Mail, Copy } from 'lucide-react';
 ---
 
 <footer class="bg-gray-900 text-gray-300">
@@ -16,20 +16,24 @@ import { Github, Linkedin, Mail } from 'lucide-react';
         </p>
       </div>
 
-      <!-- Redes sociales -->
+      <!-- Email de contacto -->
       <div class="text-center md:text-right">
-        <h4 class="text-white font-semibold mb-4 footer-follow-us" data-i18n="footer.followUs">Síguenos</h4>
-        <div class="flex justify-center md:justify-end gap-4">
-          <a href="https://github.com/DavidRochaCode" target="_blank" rel="noopener noreferrer" class="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors" aria-label="GitHub">
-            <Github className="w-5 h-5" />
-          </a>
-          <a href="https://www.linkedin.com/in/david-rocha-tabares" target="_blank" rel="noopener noreferrer" class="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors" aria-label="LinkedIn">
-            <Linkedin className="w-5 h-5" />
-          </a>
-          <a href="mailto:davidrochacode@gmail.com" class="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors" aria-label="Email">
-            <Mail className="w-5 h-5" />
-          </a>
+        <h4 class="text-white font-semibold mb-4">Contacto</h4>
+        <div class="flex items-center justify-center md:justify-end gap-2 bg-gray-800 rounded-lg px-4 py-3 max-w-sm mx-auto md:mx-0">
+          <Mail className="w-5 h-5 text-secondary-400 flex-shrink-0" />
+          <span class="text-gray-300 text-sm font-mono">contact@spinedev.pro</span>
+          <button 
+            id="copy-email-btn"
+            class="p-2 hover:bg-gray-700 rounded-lg transition-colors group"
+            aria-label="Copiar email"
+            title="Copiar email"
+          >
+            <Copy className="w-4 h-4 text-gray-400 group-hover:text-secondary-400 transition-colors" />
+          </button>
         </div>
+        <p id="copy-feedback" class="text-xs text-secondary-400 mt-2 opacity-0 transition-opacity">
+          ✓ Email copiado
+        </p>
       </div>
     </div>
 
@@ -68,5 +72,23 @@ import { Github, Linkedin, Mail } from 'lucide-react';
     updateFooterText();
     
     window.addEventListener('languageChange', updateFooterText);
+
+    // Copiar email al clipboard
+    const copyBtn = document.getElementById('copy-email-btn');
+    const feedback = document.getElementById('copy-feedback');
+    
+    if (copyBtn && feedback) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText('contact@spinedev.pro');
+          feedback.style.opacity = '1';
+          setTimeout(() => {
+            feedback.style.opacity = '0';
+          }, 2000);
+        } catch (err) {
+          console.error('Error al copiar:', err);
+        }
+      });
+    }
   }
 </script>
