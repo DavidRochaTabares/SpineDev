@@ -46,7 +46,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         const checkCalendly = setInterval(() => {
           if ((window as any).Calendly) {
             clearInterval(checkCalendly);
-            setIsLoading(false);
+            // Forzar reinicialización del widget
+            setTimeout(() => setIsLoading(false), 300);
           }
         }, 100);
 
@@ -66,8 +67,26 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         script.onload = loadCalendly;
         document.head.appendChild(script);
       } else {
-        loadCalendly();
+        // Si el script ya existe, reinicializar el widget
+        if ((window as any).Calendly) {
+          // Forzar reinicialización
+          setTimeout(() => {
+            const widget = document.querySelector('.calendly-inline-widget');
+            if (widget && (window as any).Calendly) {
+              (window as any).Calendly.initInlineWidget({
+                url: CALENDLY_CONFIG.eventUrl,
+                parentElement: widget
+              });
+            }
+            setIsLoading(false);
+          }, 300);
+        } else {
+          loadCalendly();
+        }
       }
+    } else {
+      // Resetear loading cuando se cierra
+      setIsLoading(true);
     }
   }, [isOpen]);
 
