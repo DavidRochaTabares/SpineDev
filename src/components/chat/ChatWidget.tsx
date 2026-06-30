@@ -5,6 +5,7 @@ import type { ChatMessage, ConversationContext, LeadCaptureData } from '../../ty
 import { demoTracking } from '../../services/demoTracking';
 import { getOpenAIService } from '../../services/openaiService';
 import LeadCaptureForm from './LeadCaptureForm';
+import BookingModal from '../BookingModal';
 
 const CHAT_SYSTEM_PROMPT = `You are a project advisor for SpineDev, a Colombian software development company.
 
@@ -35,6 +36,7 @@ export default function ChatWidget({ language: initialLanguage = 'es' }: ChatWid
   const [isLoading, setIsLoading] = useState(false);
   const [showLeadCapture, setShowLeadCapture] = useState(false);
   const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [context, setContext] = useState<ConversationContext>({
     visitedDemos: [],
     language,
@@ -166,8 +168,8 @@ export default function ChatWidget({ language: initialLanguage = 'es' }: ChatWid
     setShowLeadCapture(false);
   };
 
-  const handleWhatsApp = () => {
-    window.open('https://wa.me/573058260893', '_blank');
+  const handleBooking = () => {
+    setIsBookingOpen(true);
   };
 
   return (
@@ -275,16 +277,18 @@ export default function ChatWidget({ language: initialLanguage = 'es' }: ChatWid
                 </div>
               )}
 
-              {/* WhatsApp Quick Option - Mostrar después del segundo mensaje */}
+              {/* Booking Quick Option - Mostrar después del segundo mensaje */}
               {context.messageCount >= 2 && !showLeadCapture && !leadSubmitted && (
-                <div className="flex justify-center">
-                  <button
-                    onClick={handleWhatsApp}
-                    className="text-xs text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors flex items-center gap-1"
+                <div className="flex justify-center px-4 py-2">
+                  <motion.button
+                    onClick={handleBooking}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 text-sm font-semibold"
                   >
-                    <MessageCircle className="w-3 h-3" />
-                    {language === 'es' ? 'O escríbenos por WhatsApp' : 'Or message us on WhatsApp'}
-                  </button>
+                    <MessageCircle className="w-4 h-4" />
+                    {language === 'es' ? 'Agenda una reunión gratis' : 'Schedule a free meeting'}
+                  </motion.button>
                 </div>
               )}
 
@@ -306,12 +310,15 @@ export default function ChatWidget({ language: initialLanguage = 'es' }: ChatWid
                       ? 'Perfecto. Hemos recibido tu información. Un especialista de SpineDev se pondrá en contacto contigo.'
                       : 'Perfect. We\'ve received your information. A SpineDev specialist will contact you.'}
                   </p>
-                  <button
-                    onClick={handleWhatsApp}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm"
+                  <motion.button
+                    onClick={handleBooking}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 text-sm shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                   >
-                    {language === 'es' ? 'Hablar por WhatsApp' : 'Chat on WhatsApp'}
-                  </button>
+                    <MessageCircle className="w-4 h-4" />
+                    {language === 'es' ? 'Agendar reunión ahora' : 'Schedule meeting now'}
+                  </motion.button>
                 </div>
               )}
 
@@ -344,6 +351,9 @@ export default function ChatWidget({ language: initialLanguage = 'es' }: ChatWid
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Booking Modal */}
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </>
   );
 }
