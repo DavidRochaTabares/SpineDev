@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { businessModules } from './data/businessModulesData';
 import DepartmentSelector from './DepartmentSelector';
 import { demoTracking } from '../../../services/demoTracking';
+import { openBookingModal } from '../../../utils/bookingModal';
 
 interface BusinessSoftwareDemoProps {
   language?: 'es' | 'en';
@@ -38,15 +39,15 @@ export default function BusinessSoftwareDemo({ language = 'es' }: BusinessSoftwa
 
         {/* CTA */}
         <div className="text-center">
-          <a
-            href="#contacto"
+          <button
+            onClick={openBookingModal}
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-blue-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all"
           >
             {language === 'es' ? 'Solicitar Consultoría Gratis' : 'Request Free Consultation'}
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>

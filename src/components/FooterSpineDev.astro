@@ -18,10 +18,10 @@ import { Mail, Copy } from 'lucide-react';
 
       <!-- Email de contacto -->
       <div class="text-center md:text-right">
-        <h4 class="text-white font-semibold mb-4">Contacto</h4>
+        <h4 class="text-white font-semibold mb-4" data-i18n="footer.contact">Contacto</h4>
         <div class="flex items-center justify-center md:justify-end gap-2 bg-gray-800 rounded-lg px-4 py-3 max-w-sm mx-auto md:mx-0">
           <Mail className="w-5 h-5 text-secondary-400 flex-shrink-0" />
-          <span class="text-gray-300 text-sm font-mono">contact@spinedev.pro</span>
+          <span class="text-gray-300 text-sm font-mono">info@spinedev.pro</span>
           <button 
             id="copy-email-btn"
             class="p-2 hover:bg-gray-700 rounded-lg transition-colors group"
@@ -31,7 +31,7 @@ import { Mail, Copy } from 'lucide-react';
             <Copy className="w-4 h-4 text-gray-400 group-hover:text-secondary-400 transition-colors" />
           </button>
         </div>
-        <p id="copy-feedback" class="text-xs text-secondary-400 mt-2 opacity-0 transition-opacity">
+        <p id="copy-feedback" class="text-xs text-secondary-400 mt-2 opacity-0 transition-opacity" data-i18n="footer.emailCopied">
           ✓ Email copiado
         </p>
       </div>
@@ -80,7 +80,7 @@ import { Mail, Copy } from 'lucide-react';
     if (copyBtn && feedback) {
       copyBtn.addEventListener('click', async () => {
         try {
-          await navigator.clipboard.writeText('contact@spinedev.pro');
+          await navigator.clipboard.writeText('info@spinedev.pro');
           feedback.style.opacity = '1';
           setTimeout(() => {
             feedback.style.opacity = '0';

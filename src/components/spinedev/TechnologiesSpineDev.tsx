@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 import { ArrowRight } from "lucide-react";
+import { openBookingModal } from "../../utils/bookingModal";
 
 const techCategories = [
   {
@@ -165,13 +166,13 @@ export default function TechnologiesSpineDev() {
           <p className="text-lg text-gray-600 dark:text-gray-400 italic max-w-2xl mx-auto mb-8">
             "{t.spinedev.technologies.quote}"
           </p>
-          <a
-            href="#contacto"
+          <button
+            onClick={openBookingModal}
             className="inline-flex items-center gap-3 px-8 py-4 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white text-lg font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
           >
             {language === 'es' ? '¡Construyamos algo increíble!' : 'Let\'s build something amazing!'}
             <ArrowRight className="w-6 h-6" />
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>

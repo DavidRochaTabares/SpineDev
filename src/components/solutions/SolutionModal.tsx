@@ -3,6 +3,7 @@ import { X, ExternalLink, CheckCircle, Clock, DollarSign } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 import type { Solution, SolutionTab, TabConfig } from '../../data/spinedev/solutions.types';
+import { openBookingModal } from '../../utils/bookingModal';
 import AiAssistantDemo from '../demos/AiAssistantDemo';
 import WorkflowAutomationDemo from '../demos/WorkflowAutomationDemo';
 import IntegrationPlayground from '../demos/integrations/IntegrationPlayground';
@@ -252,13 +253,15 @@ export default function SolutionModal({ solution, isOpen, onClose, language }: S
 
                   {/* CTA */}
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <a
-                      href="#contacto"
-                      onClick={onClose}
+                    <button
+                      onClick={() => {
+                        onClose();
+                        openBookingModal();
+                      }}
                       className="flex-1 px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold text-center transition-colors"
                     >
                       {language === 'es' ? 'Solicitar Consultoría Gratis' : 'Request Free Consultation'}
-                    </a>
+                    </button>
                     <button
                       onClick={onClose}
                       className="px-8 py-4 border-2 border-gray-300 dark:border-gray-600 hover:border-primary-500 dark:hover:border-primary-500 text-gray-700 dark:text-gray-300 rounded-xl font-semibold transition-colors"

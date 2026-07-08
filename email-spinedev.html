@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpineDev - Premium Software Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1F2937;
+            background-color: #F7F8FA;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .email-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+
+        .header {
+            background-color: #ffffff;
+            padding: 24px 32px;
+            text-align: center;
+        }
+
+        .logo img {
+            height: 36px;
+            width: auto;
+        }
+
+        .hero {
+            padding: 48px 32px 56px;
+            text-align: center;
+            background: linear-gradient(180deg, #F7F8FA 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(30, 58, 95, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.15;
+            color: #1E3A5F;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #6B7280;
+            margin-bottom: 36px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFC107 0%, #FFD54F 100%);
+            color: #1E3A5F;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.35);
+            letter-spacing: -0.01em;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: #ffffff;
+            color: #1E3A5F;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            border: 2px solid #1E3A5F;
+            letter-spacing: -0.01em;
+        }
+
+        .illustration-placeholder {
+            width: 100%;
+            max-width: 500px;
+            height: 320px;
+            background: linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 16px 48px rgba(30, 58, 95, 0.2);
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .illustration-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .promotion {
+            background: linear-gradient(135deg, #FFC107 0%, #FFD54F 100%);
+            padding: 56px 32px;
+            text-align: center;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promotion::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: -60px;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+        }
+
+        .promotion::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 220px;
+            height: 220px;
+            background: rgba(30, 58, 95, 0.08);
+            border-radius: 50%;
+        }
+
+        .promotion-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .promotion-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #1E3A5F;
+            margin-bottom: 16px;
+            opacity: 0.75;
+        }
+
+        .promotion h2 {
+            font-size: 72px;
+            font-weight: 900;
+            color: #1E3A5F;
+            margin-bottom: 12px;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .promotion p {
+            font-size: 19px;
+            color: #1E3A5F;
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+
+        .btn-promotion {
+            display: inline-block;
+            background: #1E3A5F;
+            color: #FFC107;
+            padding: 18px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 8px 28px rgba(30, 58, 95, 0.45);
+            letter-spacing: -0.01em;
+        }
+
+        .services {
+            padding: 64px 32px;
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 800;
+            color: #1E3A5F;
+            margin-bottom: 48px;
+            letter-spacing: -0.02em;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #F7F8FA;
+            border-radius: 20px;
+            padding: 28px 24px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .service-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FFC107 0%, #FFD54F 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.25);
+        }
+
+        .service-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: #1E3A5F;
+            stroke-width: 2.5;
+            fill: none;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #1E3A5F;
+            letter-spacing: -0.01em;
+            margin: 0;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .why-section {
+            padding: 64px 32px;
+            background: linear-gradient(180deg, #F7F8FA 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-section::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: -120px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(30, 58, 95, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .why-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 28px 24px;
+            border: 2px solid #E5E7EB;
+            text-align: center;
+        }
+
+        .why-card h3 {
+            font-size: 17px;
+            font-weight: 800;
+            color: #1E3A5F;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .why-card p {
+            font-size: 13px;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+
+        .testimonials {
+            padding: 64px 32px;
+            background-color: #ffffff;
+        }
+
+        .testimonial-card {
+            background: #F7F8FA;
+            border-radius: 20px;
+            padding: 32px 28px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            font-size: 64px;
+            color: rgba(255, 193, 7, 0.2);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            color: #1F2937;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E3A5F;
+        }
+
+        .testimonial-stars {
+            color: #FFC107;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .final-cta {
+            background: linear-gradient(135deg, #1E3A5F 0%, #2D5A8F 100%);
+            padding: 72px 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .final-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -120px;
+            left: -120px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta h2 {
+            font-size: 44px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 36px;
+        }
+
+        .btn-final {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFC107 0%, #FFD54F 100%);
+            color: #1E3A5F;
+            padding: 20px 56px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 17px;
+            box-shadow: 0 10px 32px rgba(255, 193, 7, 0.4);
+            letter-spacing: -0.01em;
+        }
+
+        .footer {
+            background-color: #ffffff;
+            padding: 48px 32px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 24px;
+        }
+
+        .footer-logo img {
+            height: 28px;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #6B7280;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            color: #9CA3AF;
+            margin-top: 20px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .header {
+                padding: 20px 24px;
+            }
+
+            .hero {
+                padding: 40px 24px 48px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            .illustration-placeholder {
+                height: 260px;
+            }
+
+            .promotion {
+                padding: 48px 24px;
+            }
+
+            .promotion h2 {
+                font-size: 56px;
+            }
+
+            .services {
+                padding: 48px 24px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-section {
+                padding: 48px 24px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials {
+                padding: 48px 24px;
+            }
+
+            .final-cta {
+                padding: 56px 24px;
+            }
+
+            .final-cta h2 {
+                font-size: 34px;
+            }
+
+            .footer {
+                padding: 40px 24px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">
+                <img src="https://spinedev.pro/spinedev%20logo%20horizontal%20azul.png" alt="SpineDev">
+            </div>
+        </div>
+
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Helping businesses automate,<br>scale and build smarter software.</h1>
+                <p>We partner with ambitious companies to design, develop, and deploy custom software solutions that drive real business growth.</p>
+                
+                <div class="cta-group">
+                    <a href="https://calendly.com/david-spinedev/30min" class="btn-primary">Book Free Strategy Session</a>
+                    <a href="https://spinedev.pro" class="btn-secondary">Explore SpineDev</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="promotion">
+            <div class="promotion-content">
+                <div class="promotion-label">Launch Promotion</div>
+                <h2>20% OFF</h2>
+                <p>For new software projects.</p>
+                <a href="https://calendly.com/david-spinedev/30min" class="btn-promotion">Claim Offer</a>
+            </div>
+        </div>
+
+        <div class="services">
+            <h2 class="section-title">CHOOSE YOUR'S</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/><path d="M8 12h8"/><path d="M8 16h8"/></svg>
+                        </div>
+                        <h3>Artificial Intelligence</h3>
+                    </div>
+                    <p>Custom AI solutions that automate tasks and unlock insights.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h3>Workflow Automation</h3>
+                    </div>
+                    <p>Streamline operations and eliminate manual work.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                        </div>
+                        <h3>System Integrations</h3>
+                    </div>
+                    <p>Connect your tools for seamless data flow.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/><path d="M12 3v6"/></svg>
+                        </div>
+                        <h3>Enterprise Software</h3>
+                    </div>
+                    <p>Scalable solutions for complex requirements.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                        </div>
+                        <h3>Custom Web Development</h3>
+                    </div>
+                    <p>Modern web apps designed for performance.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                        </div>
+                        <h3>MVP & SaaS</h3>
+                    </div>
+                    <p>Launch your product fast with solid foundation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="why-section">
+            <h2 class="section-title">WHAT OTHERS SAY</h2>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"SpineDev transformed our business with an AI solution that saved us 40 hours per week. The quality and speed of delivery exceeded our expectations."</p>
+                    <div class="testimonial-author">— Michael R.</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Working with SpineDev was seamless. They built our MVP in record time and it's been scaling perfectly as we grow."</p>
+                    <div class="testimonial-author">— Sarah K.</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The automation system they built has revolutionized how we operate. Professional, modern, and exactly what we needed."</p>
+                    <div class="testimonial-author">— David L.</div>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 32px;">WHY SPINEDEV</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>Modern Development</h3>
+                    <p>Cutting-edge tech and best practices.</p>
+                </div>
+
+                <div class="why-card">
+                    <h3>Fast Delivery</h3>
+                    <p>Agile methodology, rapid results.</p>
+                </div>
+
+                <div class="why-card">
+                    <h3>Scalable Architecture</h3>
+                    <p>Built to grow with your business.</p>
+                </div>
+
+                <div class="why-card">
+                    <h3>Long-term Partnership</h3>
+                    <p>Ongoing support and evolution.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="final-cta">
+            <div class="final-cta-content">
+                <h2>Let's build something great.</h2>
+                <p>Book your free consultation today.</p>
+                <a href="https://calendly.com/david-spinedev/30min" class="btn-final">Get Started</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="https://spinedev.pro/spinedev%20logo%20horizontal%20azul.png" alt="SpineDev">
+            </div>
+            
+            <div class="footer-links">
+                <a href="https://spinedev.pro">Website</a>
+                <a href="mailto:info@spinedev.pro">Email</a>
+                <a href="https://linkedin.com/company/spinedev">LinkedIn</a>
+            </div>
+
+            <div class="footer-copyright">
+                © 2026 SpineDev. All rights reserved.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

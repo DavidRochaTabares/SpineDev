@@ -5,6 +5,7 @@ import { solutions } from '../../data/spinedev/solutions.data';
 import SolutionCard from './SolutionCard';
 import SolutionModal from './SolutionModal';
 import type { Solution } from '../../data/spinedev/solutions.types';
+import { openBookingModal } from '../../utils/bookingModal';
 
 // Mapeo de tipos de demo a IDs de soluciones
 const demoToSolutionMap: Record<string, string> = {
@@ -133,15 +134,15 @@ export default function SolutionsSection() {
                   ? 'Cada proyecto es único. Cuéntanos tu idea y crearemos la solución que necesitas.' 
                   : 'Every project is unique. Tell us your idea and we\'ll create the solution you need.'}
               </p>
-              <a
-                href="#contacto"
+              <button
+                onClick={openBookingModal}
                 className="inline-flex items-center gap-3 px-10 py-5 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white text-xl font-bold rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
               >
                 {language === 'es' ? '¡Cuéntanos tu proyecto!' : 'Tell us about your project!'}
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
+              </button>
             </div>
           </motion.div>
         </div>

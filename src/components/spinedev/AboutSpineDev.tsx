@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
+import { openBookingModal } from "../../utils/bookingModal";
 import { Shield, Zap, Users, ArrowRight } from "lucide-react";
 import { aboutSpineDev } from "../../data/spinedev";
 
@@ -94,13 +95,13 @@ export default function AboutSpineDev() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="mt-12 text-center"
           >
-            <a
-              href="#contacto"
+            <button
+              onClick={openBookingModal}
               className="inline-flex items-center gap-3 px-8 py-4 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white text-lg font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
             >
               {language === 'es' ? '¡Trabajemos juntos!' : 'Let\'s work together!'}
               <ArrowRight className="w-6 h-6" />
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>

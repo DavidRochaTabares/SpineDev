@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Loader2, Calendar } from 'lucide-react';
 import { CALENDLY_CONFIG } from '../config/calendly';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface BookingModalProps {
 }
 
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
+  const { language } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
 
   // Bloquear scroll del body cuando el modal está abierto
@@ -128,10 +130,10 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     <Calendar className="w-8 h-8 sm:w-10 sm:h-10" />
                     <div>
                       <h2 className="text-xl sm:text-2xl font-display font-bold">
-                        Agenda tu consulta
+                        {language === 'es' ? 'Agenda tu consulta' : 'Schedule your consultation'}
                       </h2>
                       <p className="text-sm text-white/90 mt-1">
-                        30 minutos • 100% gratis
+                        {language === 'es' ? '30 minutos • 100% gratis' : '30 minutes • 100% free'}
                       </p>
                     </div>
                   </div>
@@ -145,7 +147,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       <div className="text-center">
                         <Loader2 className="w-12 h-12 animate-spin text-primary-600 dark:text-primary-400 mx-auto mb-4" />
                         <p className="text-gray-600 dark:text-gray-400 text-lg">
-                          Cargando calendario...
+                          {language === 'es' ? 'Cargando calendario...' : 'Loading calendar...'}
                         </p>
                       </div>
                     </div>

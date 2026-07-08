@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
+import { openBookingModal } from '../utils/bookingModal';
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,21 +99,15 @@ export default function MobileMenu() {
                   }}
                   className="max-w-md mx-auto"
                 >
-                  <a
-                    href="#contacto"
-                    onClick={(e) => {
+                  <button
+                    onClick={() => {
                       handleLinkClick();
-                      setTimeout(() => {
-                        const element = document.querySelector('#contacto');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                      }, 100);
+                      openBookingModal();
                     }}
                     className="block w-full px-6 py-3.5 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white rounded-lg text-center font-bold transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-95"
                   >
                     {t.navigation.cta}
-                  </a>
+                  </button>
                 </motion.div>
               </nav>
             </motion.div>
