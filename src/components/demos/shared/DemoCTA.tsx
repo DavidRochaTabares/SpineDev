@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Calendar, MessageCircle } from 'lucide-react';
+import { openBookingModal } from '../../../utils/bookingModal';
 
 interface DemoCTAProps {
   visible: boolean;
@@ -15,6 +16,11 @@ export default function DemoCTA({
   language = 'es'
 }: DemoCTAProps) {
   if (!visible) return null;
+
+  const handleScheduleClick = () => {
+    openBookingModal();
+    onScheduleClick?.();
+  };
 
   return (
     <motion.div
@@ -42,14 +48,13 @@ export default function DemoCTA({
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3">
-        <a
-          href="#contacto"
-          onClick={onScheduleClick}
+        <button
+          onClick={handleScheduleClick}
           className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg"
         >
           <Calendar className="w-4 h-4" />
           {language === 'es' ? 'Agendar Consultoría Gratis' : 'Schedule Free Consultation'}
-        </a>
+        </button>
         <button
           onClick={onContinueExploring}
           className="px-6 py-3 border-2 border-gray-300 dark:border-gray-600 hover:border-primary-500 dark:hover:border-primary-500 text-gray-700 dark:text-gray-300 rounded-xl font-semibold transition-colors"

@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 import { spinedevProjects } from "../../data/spinedev";
+import { openBookingModal } from "../../utils/bookingModal";
 
 export default function PortfolioSpineDev() {
   const { t } = useTranslation();
@@ -35,12 +36,12 @@ export default function PortfolioSpineDev() {
               </p>
               <p className="text-gray-600 dark:text-gray-400">
                 {t.spinedev.portfolio.meanwhile}{" "}
-                <a
-                  href="#contacto"
+                <button
+                  onClick={openBookingModal}
                   className="text-primary-600 dark:text-primary-400 font-semibold hover:underline"
                 >
                   {t.spinedev.portfolio.schedule}
-                </a>{" "}
+                </button>{" "}
                 {t.spinedev.portfolio.moreInfo}
               </p>
             </div>

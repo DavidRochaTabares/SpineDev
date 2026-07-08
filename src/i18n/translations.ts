@@ -54,6 +54,8 @@ export const translations = {
       quickLinks: "Enlaces rápidos",
       services: "Servicios",
       followUs: "Síguenos",
+      contact: "Contacto",
+      emailCopied: "✓ Email copiado",
       rights: "Todos los derechos reservados"
     },
     // SpineDev
@@ -62,7 +64,7 @@ export const translations = {
         badge: "Agencia boutique especializada",
         title: "Transformamos ideas en",
         titleHighlight: "soluciones digitales",
-        description: "Desarrollo de software, automatizaciones e inteligencia artificial para empresas que buscan eficiencia y crecimiento",
+        description: "Ayudamos a empresas a crecer mediante soluciones de software, automatización e inteligencia artificial.",
         ctaPrimary: "Agendar Consultoría Gratis",
         ctaSecondary: "Ver Proyectos",
         available: "Disponible ahora",
@@ -200,6 +202,8 @@ export const translations = {
       quickLinks: "Quick links",
       services: "Services",
       followUs: "Follow Us",
+      contact: "Contact",
+      emailCopied: "✓ Email copied",
       rights: "All rights reserved"
     },
     // SpineDev
@@ -208,7 +212,7 @@ export const translations = {
         badge: "Specialized boutique agency",
         title: "We transform ideas into",
         titleHighlight: "digital solutions",
-        description: "Software development, automation and artificial intelligence for companies seeking efficiency and growth",
+        description: "We help local businesses generate more clients through modern websites, automation and AI.",
         ctaPrimary: "Schedule Free Consultation",
         ctaSecondary: "View Projects",
         available: "Available now",

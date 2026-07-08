@@ -35,13 +35,13 @@ import MobileMenu from './MobileMenu';
       <div class="flex items-center gap-6">
         <LanguageSelector client:load />
         <ThemeToggle client:load />
-        <a 
-          href="#contacto" 
+        <button 
+          id="nav-booking-btn"
           class="nav-cta hidden md:inline-flex px-6 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium"
           data-i18n="navigation.cta"
         >
           Hablemos
-        </a>
+        </button>
         <MobileMenu client:load />
       </div>
     </div>
@@ -89,5 +89,13 @@ import MobileMenu from './MobileMenu';
     updateNavigationText();
     
     window.addEventListener('languageChange', updateNavigationText);
+    
+    // Listener para el botón de agendamiento en la navegación
+    const navBookingBtn = document.getElementById('nav-booking-btn');
+    if (navBookingBtn) {
+      navBookingBtn.addEventListener('click', () => {
+        window.dispatchEvent(new Event('openBookingModal'));
+      });
+    }
   }
 </script>

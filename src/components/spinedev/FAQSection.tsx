@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { faqs } from "../../data/spinedev";
+import { openBookingModal } from "../../utils/bookingModal";
 
 function FAQItem({ faq, index, language }: { faq: (typeof faqs)[0]; index: number; language: 'es' | 'en' }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,13 +96,13 @@ export default function FAQSection() {
                 ? 'Estamos aquí para ayudarte. Contáctanos y resolveremos todas tus dudas.' 
                 : 'We\'re here to help. Contact us and we\'ll answer all your questions.'}
             </p>
-            <a
-              href="#contacto"
+            <button
+              onClick={openBookingModal}
               className="inline-flex items-center gap-3 px-10 py-5 bg-secondary-600 hover:bg-secondary-700 dark:bg-secondary-500 dark:hover:bg-secondary-600 text-white text-xl font-bold rounded-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
             >
               {t.spinedev.faq.contactUs}
               <ArrowRight className="w-6 h-6" />
-            </a>
+            </button>
           </div>
         </motion.div>
       </div>

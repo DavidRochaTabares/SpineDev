@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 import { mvpIdeas } from './data/mvpData';
 import { demoTracking } from '../../../services/demoTracking';
+import { openBookingModal } from '../../../utils/bookingModal';
 
 interface MvpBuilderDemoProps {
   language?: 'es' | 'en';
@@ -189,13 +190,13 @@ export default function MvpBuilderDemo({ language = 'es' }: MvpBuilderDemoProps)
 
       {/* CTA */}
       <div className="text-center">
-        <a
-          href="#contacto"
+        <button
+          onClick={openBookingModal}
           className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-blue-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all"
         >
           {language === 'es' ? 'Hablemos de tu MVP' : 'Let\'s talk about your MVP'}
           <LucideIcons.ArrowRight className="w-5 h-5" />
-        </a>
+        </button>
       </div>
     </div>
   );
