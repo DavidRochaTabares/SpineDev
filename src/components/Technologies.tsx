@@ -18,7 +18,7 @@ export default function Technologies() {
   }, {} as Record<string, typeof technologies>);
 
   return (
-    <section id="tecnologias" className="py-16 bg-white dark:bg-gray-950">
+    <section id="tecnologias" className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -124,7 +124,15 @@ function getTechLogo(name: string): string {
     'Docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
     'LangChain': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
     'LangGraph': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-    'AI Integration': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg'
+    'AI Integration': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg',
+    'Kotlin': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg',
+    'Jetpack Compose': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg',
+    'Firebase': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg',
+    'Room': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg',
+    'CameraX': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg',
+    'OpenStreetMap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openstreetmap/openstreetmap-original.svg',
+    'WorkManager': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg',
+    'MVVM': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg'
   };
   
   return logos[name] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';

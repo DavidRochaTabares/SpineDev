@@ -1,6 +1,6 @@
 export interface Technology {
   name: string;
-  category: 'frontend' | 'backend' | 'cloud' | 'tools' | 'ai';
+  category: 'frontend' | 'backend' | 'cloud' | 'tools' | 'ai' | 'mobile';
   level: 'expert' | 'advanced' | 'intermediate';
   yearsOfExperience?: number;
 }
@@ -43,4 +43,13 @@ export const technologies: Technology[] = [
   { name: 'LangChain', category: 'ai', level: 'advanced', yearsOfExperience: 1 },
   { name: 'LangGraph', category: 'ai', level: 'intermediate', yearsOfExperience: 1 },
   { name: 'AI Integration', category: 'ai', level: 'advanced', yearsOfExperience: 2 },
+
+  { name: 'Kotlin', category: 'mobile', level: 'advanced', yearsOfExperience: 1 },
+  { name: 'Jetpack Compose', category: 'mobile', level: 'advanced', yearsOfExperience: 1 },
+  { name: 'Firebase', category: 'mobile', level: 'advanced', yearsOfExperience: 1 },
+  { name: 'Room', category: 'mobile', level: 'intermediate', yearsOfExperience: 1 },
+  { name: 'CameraX', category: 'mobile', level: 'intermediate', yearsOfExperience: 1 },
+  { name: 'OpenStreetMap', category: 'mobile', level: 'intermediate', yearsOfExperience: 1 },
+  { name: 'WorkManager', category: 'mobile', level: 'intermediate', yearsOfExperience: 1 },
+  { name: 'MVVM', category: 'mobile', level: 'advanced', yearsOfExperience: 1 },
 ];
