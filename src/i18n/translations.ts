@@ -19,14 +19,15 @@ export const translations = {
         backend: "Backend",
         cloud: "Cloud (AWS)",
         tools: "Herramientas",
-        ai: "Inteligencia Artificial"
+        ai: "Inteligencia Artificial",
+        mobile: "Mobile (Android)"
       }
     },
     // Experience
     experience: {
       title: "Experiencia",
       titleHighlight: "Laboral",
-      subtitle: "Mi trayectoria profesional en desarrollo web",
+      subtitle: "Más de 3 años de experiencia construyendo aplicaciones web y móviles",
       present: "Presente",
       achievements: "Logros principales:"
     },
@@ -35,6 +36,20 @@ export const translations = {
       title: "Educación y",
       titleHighlight: "Certificaciones",
       subtitle: "Formación académica y cursos especializados"
+    },
+    // Portfolio (CV)
+    cvPortfolio: {
+      title: "Porta",
+      titleHighlight: "folio",
+      subtitle: "Proyectos destacados que demuestran mi experiencia",
+      projectSubtitle: "Android Mobile Application",
+      description: "Aplicación Android para reportar incidencias urbanas con geolocalización, evidencia fotográfica, CRUD y funcionamiento offline-first con sincronización con servicios remotos.",
+      demonstrates: "Qué demuestra",
+      watchDemo: "Ver demo",
+      viewCode: "Ver código",
+      screenshots: "Capturas de pantalla",
+      videoPlaceholder: "Video de demostración próximamente",
+      closeModal: "Cerrar"
     },
     // Navigation
     navigation: {
@@ -167,14 +182,15 @@ export const translations = {
         backend: "Backend",
         cloud: "Cloud (AWS)",
         tools: "Tools",
-        ai: "Artificial Intelligence"
+        ai: "Artificial Intelligence",
+        mobile: "Mobile (Android)"
       }
     },
     // Experience
     experience: {
       title: "Work",
       titleHighlight: "Experience",
-      subtitle: "My professional journey in web development",
+      subtitle: "3+ years of experience building web and mobile applications",
       present: "Present",
       achievements: "Key achievements:"
     },
@@ -183,6 +199,20 @@ export const translations = {
       title: "Education &",
       titleHighlight: "Certifications",
       subtitle: "Academic background and specialized courses"
+    },
+    // Portfolio (CV)
+    cvPortfolio: {
+      title: "Port",
+      titleHighlight: "folio",
+      subtitle: "Featured projects that showcase my experience",
+      projectSubtitle: "Android Mobile Application",
+      description: "Android application for reporting urban incidents with geolocation, photographic evidence, CRUD and offline-first functionality with remote services synchronization.",
+      demonstrates: "What it demonstrates",
+      watchDemo: "Watch demo",
+      viewCode: "View code",
+      screenshots: "Screenshots",
+      videoPlaceholder: "Demo video coming soon",
+      closeModal: "Close"
     },
     // Navigation
     navigation: {
