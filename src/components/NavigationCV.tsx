@@ -1,5 +1,6 @@
 import ThemeToggle from './ThemeToggle';
 import LanguageSelector from './LanguageSelector';
+import MobileMenuCV from './MobileMenuCV';
 import { useTranslation } from '../hooks/useTranslation';
 
 export default function NavigationCV() {
@@ -68,6 +69,7 @@ export default function NavigationCV() {
               </svg>
               {txt.contact}
             </a>
+            <MobileMenuCV />
           </div>
         </div>
       </div>
