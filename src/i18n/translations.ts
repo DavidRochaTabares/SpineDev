@@ -5,7 +5,7 @@ export const translations = {
       badge: "Full Stack Developer | AWS | React | Node.js",
       title: "David Rocha",
       subtitle: "Tabares",
-      description: "Desarrollador Full Stack con especialización en Frontend. Experto en React, Next.js, AWS y arquitecturas modernas.",
+      description: "Desarrollador Full Stack con especialización en Frontend. React, Next.js, AWS y arquitecturas modernas.",
       downloadCV: "Descargar CV",
       contact: "¡Hablemos por WhatsApp!"
     },
@@ -168,7 +168,7 @@ export const translations = {
       badge: "Full Stack Developer | AWS | React | Node.js",
       title: "David Rocha",
       subtitle: "Tabares",
-      description: "Full Stack Developer with Frontend specialization. Expert in React, Next.js, AWS and modern architectures.",
+      description: "Full Stack Developer with Frontend specialization. React, Next.js, AWS and modern architectures.",
       downloadCV: "Download CV",
       contact: "Let's talk on WhatsApp!"
     },
