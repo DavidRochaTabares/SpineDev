@@ -82,7 +82,7 @@ const PROJECTS: Project[] = [
     },
     icon: Globe,
     screenshots: [],
-    videoUrl: '/video%20demo%20spinedev.mp4',
+    videoUrl: '/video%20demo%20spinedev%20corregido.mp4',
     liveUrl: 'https://spinedev.pro',
     technologies: [
       'Astro',
