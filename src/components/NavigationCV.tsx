@@ -10,6 +10,7 @@ export default function NavigationCV() {
       home: "Inicio",
       technologies: "Tecnologías",
       experience: "Experiencia",
+      portfolio: "Portafolio",
       education: "Educación",
       contact: "Contáctame"
     },
@@ -17,6 +18,7 @@ export default function NavigationCV() {
       home: "Home",
       technologies: "Technologies",
       experience: "Experience",
+      portfolio: "Portfolio",
       education: "Education",
       contact: "Contact Me"
     }
@@ -43,6 +45,9 @@ export default function NavigationCV() {
             </a>
             <a href="#experiencia" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
               {txt.experience}
+            </a>
+            <a href="#portafolio" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+              {txt.portfolio}
             </a>
             <a href="#educacion" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
               {txt.education}
