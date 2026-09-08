@@ -103,7 +103,7 @@ export default function FooterCV() {
             </div>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="text-white font-semibold mb-4">{txt.quickLinks}</h4>
             <ul className="space-y-2">
               <li><a href="#inicio" className="hover:text-primary-400 transition-colors">{txt.home}</a></li>
